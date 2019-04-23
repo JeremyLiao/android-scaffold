@@ -14,8 +14,9 @@ import java.util.List;
  */
 public abstract class QuickAdapter<T> extends RecyclerView.Adapter<QuickAdapter.ViewHolder> {
 
-    private List<T> datas;
+    protected List<T> datas;
     private OnItemClickListener onItemClickListener;
+    private OnItemLongClickListener onItemLongClickListener;
 
     public QuickAdapter(List<T> datas) {
         this.datas = datas;
@@ -29,12 +30,20 @@ public abstract class QuickAdapter<T> extends RecyclerView.Adapter<QuickAdapter.
         this.onItemClickListener = listener;
     }
 
+    public void setOnItemLongClickListener(OnItemLongClickListener<T> onItemLongClickListener) {
+        this.onItemLongClickListener = onItemLongClickListener;
+    }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         ViewHolder viewHolder = ViewHolder.get(parent, getLayoutId(viewType));
         viewHolder.itemView.setOnClickListener(new OnClickListener(viewHolder));
         viewHolder.itemView.setOnLongClickListener(new OnLongClickListener(viewHolder));
+        onViewHolderCreated(viewHolder);
         return viewHolder;
+    }
+
+    public void onViewHolderCreated(ViewHolder viewHolder) {
     }
 
     @Override
@@ -100,7 +109,9 @@ public abstract class QuickAdapter<T> extends RecyclerView.Adapter<QuickAdapter.
 
     public interface OnItemClickListener<T> {
         void onItemClick(View view, int position, T data);
+    }
 
+    public interface OnItemLongClickListener<T> {
         void onItemLongClick(View view, int position, T data);
     }
 
@@ -108,7 +119,7 @@ public abstract class QuickAdapter<T> extends RecyclerView.Adapter<QuickAdapter.
 
         private final ViewHolder viewHolder;
 
-        public OnClickListener(ViewHolder viewHolder) {
+        OnClickListener(ViewHolder viewHolder) {
             this.viewHolder = viewHolder;
         }
 
@@ -124,7 +135,7 @@ public abstract class QuickAdapter<T> extends RecyclerView.Adapter<QuickAdapter.
     private class OnLongClickListener implements View.OnLongClickListener {
         private final ViewHolder viewHolder;
 
-        public OnLongClickListener(ViewHolder viewHolder) {
+        OnLongClickListener(ViewHolder viewHolder) {
             this.viewHolder = viewHolder;
         }
 
@@ -132,7 +143,7 @@ public abstract class QuickAdapter<T> extends RecyclerView.Adapter<QuickAdapter.
         public boolean onLongClick(View v) {
             if (onItemClickListener != null) {
                 int pos = viewHolder.getLayoutPosition();
-                onItemClickListener.onItemLongClick(viewHolder.itemView, pos, datas.get(pos));
+                onItemLongClickListener.onItemLongClick(viewHolder.itemView, pos, datas.get(pos));
             }
             //表示此事件已经消费，不会触发单击事件
             return true;

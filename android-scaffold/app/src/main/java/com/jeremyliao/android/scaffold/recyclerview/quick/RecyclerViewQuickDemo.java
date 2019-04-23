@@ -34,11 +34,6 @@ public class RecyclerViewQuickDemo extends AppCompatActivity {
             public void onItemClick(View view, int position, String data) {
                 Toast.makeText(RecyclerViewQuickDemo.this, data, Toast.LENGTH_SHORT).show();
             }
-
-            @Override
-            public void onItemLongClick(View view, int position, String data) {
-
-            }
         });
         recyclerView.setAdapter(adapter);
 //        recyclerView.addItemDecoration(new DividerGridItemDecoration(this));

@@ -2,8 +2,8 @@ package com.jeremyliao.android.scaffold;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
@@ -11,7 +11,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.jeremyliao.android.scaffold.databinding.demo1.DataBindingDemoActivity;
+import com.jeremyliao.android.scaffold.databinding.activity.DataBindingDemoActivity;
+import com.jeremyliao.android.scaffold.databinding.fragment.DataBindingFragmentDemo;
 import com.jeremyliao.android.scaffold.recyclerview.normal.RecyclerViewNormalDemo;
 import com.jeremyliao.android.scaffold.recyclerview.quick.QuickAdapter;
 import com.jeremyliao.android.scaffold.recyclerview.quick.RecyclerViewQuickDemo;
@@ -37,11 +38,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(View view, int position, DemoData data) {
                 startActivity(new Intent(MainActivity.this, data.activityClass));
-            }
-
-            @Override
-            public void onItemLongClick(View view, int position, DemoData data) {
-
             }
         });
         recyclerView.setAdapter(adapter);
@@ -79,5 +75,6 @@ public class MainActivity extends AppCompatActivity {
             new DemoData("RecyclerViewNormalDemo", RecyclerViewNormalDemo.class),
             new DemoData("RecyclerViewQuickDemo", RecyclerViewQuickDemo.class),
             new DemoData("DataBindingDemoActivity", DataBindingDemoActivity.class),
+            new DemoData("DataBindingFragmentDemo", DataBindingFragmentDemo.class),
     };
 }

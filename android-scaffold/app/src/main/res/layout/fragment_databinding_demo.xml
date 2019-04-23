@@ -5,11 +5,17 @@
 
     <data>
 
-        <import type="com.jeremyliao.android.scaffold.databinding.activity.DemoViewModel" />
+        <import type="com.jeremyliao.android.scaffold.databinding.fragment.DemoViewModel" />
+
+        <import type="com.jeremyliao.android.scaffold.databinding.fragment.DemoFragment" />
 
         <variable
             name="vm"
             type="DemoViewModel" />
+
+        <variable
+            name="handler"
+            type="DemoFragment" />
     </data>
 
     <LinearLayout
@@ -27,7 +33,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onChangeValue"
+            android:onClick="@{()->handler.onChangeValue()}"
             android:text="change value" />
 
     </LinearLayout>

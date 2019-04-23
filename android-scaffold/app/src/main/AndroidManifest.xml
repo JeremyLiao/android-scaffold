@@ -16,10 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".recyclerview.normal.RecyclerViewNormalDemo" />
         <activity android:name=".recyclerview.quick.RecyclerViewQuickDemo" />
-        <activity android:name=".databinding.demo1.DataBindingDemoActivity" />
+        <activity android:name=".databinding.activity.DataBindingDemoActivity" />
+        <activity android:name=".databinding.fragment.DataBindingFragmentDemo" />
     </application>
 
 </manifest>

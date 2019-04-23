@@ -1,4 +1,4 @@
-package com.jeremyliao.android.scaffold.databinding.demo1;
+package com.jeremyliao.android.scaffold.databinding.fragment;
 
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;

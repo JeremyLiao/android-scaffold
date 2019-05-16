@@ -3,6 +3,7 @@ package com.jeremyliao.android.scaffold.recyclerview.normal;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
@@ -30,7 +31,7 @@ public class RecyclerViewNormalDemo extends AppCompatActivity {
         layoutManager.setOrientation(OrientationHelper.VERTICAL);
         List<String> data = initData();
         recyclerView.setAdapter(new NormalAdapter(data));
-//        recyclerView.addItemDecoration(new DividerGridItemDecoration(this));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
     }
 

@@ -20,6 +20,7 @@
         <activity android:name=".recyclerview.quick.RecyclerViewQuickDemo" />
         <activity android:name=".databinding.activity.DataBindingDemoActivity" />
         <activity android:name=".databinding.fragment.DataBindingFragmentDemo" />
+        <activity android:name=".databinding.view.DemoInfoViewActivity" />
     </application>
 
 </manifest>

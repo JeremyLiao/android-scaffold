@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.jeremyliao.android.scaffold.databinding.activity.DataBindingDemoActivity;
 import com.jeremyliao.android.scaffold.databinding.fragment.DataBindingFragmentDemo;
+import com.jeremyliao.android.scaffold.databinding.view.DemoInfoViewActivity;
 import com.jeremyliao.android.scaffold.recyclerview.normal.RecyclerViewNormalDemo;
 import com.jeremyliao.android.scaffold.recyclerview.quick.QuickAdapter;
 import com.jeremyliao.android.scaffold.recyclerview.quick.RecyclerViewQuickDemo;
@@ -76,5 +77,6 @@ public class MainActivity extends AppCompatActivity {
             new DemoData("RecyclerViewQuickDemo", RecyclerViewQuickDemo.class),
             new DemoData("DataBindingDemoActivity", DataBindingDemoActivity.class),
             new DemoData("DataBindingFragmentDemo", DataBindingFragmentDemo.class),
+            new DemoData("DemoInfoViewActivity", DemoInfoViewActivity.class),
     };
 }

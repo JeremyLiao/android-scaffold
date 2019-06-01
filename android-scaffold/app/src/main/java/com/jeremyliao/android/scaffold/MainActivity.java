@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import com.jeremyliao.android.scaffold.broadcast.LocalBroadcastDemoActivity;
 import com.jeremyliao.android.scaffold.databinding.activity.DataBindingDemoActivity;
 import com.jeremyliao.android.scaffold.databinding.fragment.DataBindingFragmentDemo;
 import com.jeremyliao.android.scaffold.databinding.view.DemoInfoViewActivity;
@@ -43,6 +44,13 @@ public class MainActivity extends AppCompatActivity {
         });
         recyclerView.setAdapter(adapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+        startService();
+    }
+
+    private void startService() {
+        Intent intent = new Intent("intent.action.INTER_PROCESS");
+        intent.setPackage("com.jeremyliao.android.scaffold");
+        startService(intent);
     }
 
     static class DemoData {
@@ -78,5 +86,6 @@ public class MainActivity extends AppCompatActivity {
             new DemoData("DataBindingDemoActivity", DataBindingDemoActivity.class),
             new DemoData("DataBindingFragmentDemo", DataBindingFragmentDemo.class),
             new DemoData("DemoInfoViewActivity", DemoInfoViewActivity.class),
+            new DemoData("LocalBroadcastDemoActivity", LocalBroadcastDemoActivity.class),
     };
 }

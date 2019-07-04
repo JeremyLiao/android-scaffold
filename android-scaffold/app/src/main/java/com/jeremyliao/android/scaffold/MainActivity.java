@@ -15,6 +15,7 @@ import com.jeremyliao.android.scaffold.broadcast.LocalBroadcastDemoActivity;
 import com.jeremyliao.android.scaffold.databinding.activity.DataBindingDemoActivity;
 import com.jeremyliao.android.scaffold.databinding.fragment.DataBindingFragmentDemo;
 import com.jeremyliao.android.scaffold.databinding.view.DemoInfoViewActivity;
+import com.jeremyliao.android.scaffold.databinding.vmshare.ViewModelShareDemo;
 import com.jeremyliao.android.scaffold.recyclerview.loadmore.LoadMoreRecyclerDemo;
 import com.jeremyliao.android.scaffold.recyclerview.normal.RecyclerViewNormalDemo;
 import com.jeremyliao.android.scaffold.recyclerview.quick.QuickAdapter;
@@ -89,5 +90,6 @@ public class MainActivity extends AppCompatActivity {
             new DemoData("DataBindingFragmentDemo", DataBindingFragmentDemo.class),
             new DemoData("DemoInfoViewActivity", DemoInfoViewActivity.class),
             new DemoData("LocalBroadcastDemoActivity", LocalBroadcastDemoActivity.class),
+            new DemoData("ViewModelShareDemo", ViewModelShareDemo.class),
     };
 }

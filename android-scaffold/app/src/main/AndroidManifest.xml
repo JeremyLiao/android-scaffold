@@ -23,6 +23,7 @@
         <activity android:name=".databinding.view.DemoInfoViewActivity" />
         <activity android:name=".broadcast.LocalBroadcastDemoActivity" />
         <activity android:name=".recyclerview.loadmore.LoadMoreRecyclerDemo"/>
+        <activity android:name=".databinding.vmshare.ViewModelShareDemo"/>
 
         <service
             android:name=".broadcast.InterProcessService"

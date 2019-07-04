@@ -22,6 +22,7 @@
         <activity android:name=".databinding.fragment.DataBindingFragmentDemo" />
         <activity android:name=".databinding.view.DemoInfoViewActivity" />
         <activity android:name=".broadcast.LocalBroadcastDemoActivity" />
+        <activity android:name=".recyclerview.loadmore.LoadMoreRecyclerDemo"/>
 
         <service
             android:name=".broadcast.InterProcessService"

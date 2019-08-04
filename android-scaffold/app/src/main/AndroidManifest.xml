@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jeremyliao.android.scaffold">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,8 +24,11 @@
         <activity android:name=".databinding.fragment.DataBindingFragmentDemo" />
         <activity android:name=".databinding.view.DemoInfoViewActivity" />
         <activity android:name=".broadcast.LocalBroadcastDemoActivity" />
-        <activity android:name=".recyclerview.loadmore.LoadMoreRecyclerDemo"/>
-        <activity android:name=".databinding.vmshare.ViewModelShareDemo"/>
+        <activity android:name=".recyclerview.loadmore.LoadMoreRecyclerDemo" />
+        <activity android:name=".databinding.vmshare.ViewModelShareDemo" />
+
+        <activity android:name=".robolectric.activity.UTMainActivity" />
+        <activity android:name=".robolectric.activity.LoginActivity" />
 
         <service
             android:name=".broadcast.InterProcessService"

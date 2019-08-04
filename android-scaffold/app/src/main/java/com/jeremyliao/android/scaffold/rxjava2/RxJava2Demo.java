@@ -1,5 +1,8 @@
 package com.jeremyliao.android.scaffold.rxjava2;
 
+import android.annotation.SuppressLint;
+import android.util.Log;
+
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -12,6 +15,8 @@ import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -19,7 +24,9 @@ import io.reactivex.schedulers.Schedulers;
  */
 public class RxJava2Demo {
 
-    public void asyncTask1() {
+    private static final String TAG = "RxJava2Demo";
+
+    public static void asyncTask1() {
         Observable
                 .create(new ObservableOnSubscribe<String>() {
                     @Override
@@ -52,7 +59,7 @@ public class RxJava2Demo {
                 });
     }
 
-    public void asyncTask2() {
+    public static void asyncTask2() {
         Observable
                 .fromCallable(new Callable<String>() {
                     @Override
@@ -85,7 +92,7 @@ public class RxJava2Demo {
                 });
     }
 
-    public void asyncTask3() {
+    public static void asyncTask3() {
         Observable
                 .fromFuture(new Future<String>() {
                     @Override
@@ -134,6 +141,44 @@ public class RxJava2Demo {
                     @Override
                     public void onComplete() {
 
+                    }
+                });
+    }
+
+    @SuppressLint("CheckResult")
+    public static void asyncTask4() {
+        Observable.just(2)
+                .map(new Function<Integer, Integer>() {
+                    @Override
+                    public Integer apply(Integer integer) throws Exception {
+                        Log.d(TAG, "map: " + Thread.currentThread().getName());
+                        return integer;
+                    }
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .map(new Function<Integer, Integer>() {
+                    @Override
+                    public Integer apply(Integer integer) throws Exception {
+                        Log.d(TAG, "map: " + Thread.currentThread().getName());
+                        return integer;
+                    }
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .map(new Function<Integer, Integer>() {
+                    @Override
+                    public Integer apply(Integer integer) throws Exception {
+                        Log.d(TAG, "map: " + Thread.currentThread().getName());
+                        return integer;
+                    }
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<Integer>() {
+                    @Override
+                    public void accept(Integer integer) throws Exception {
+                        Log.d(TAG, "subscribe: " + Thread.currentThread().getName());
                     }
                 });
     }

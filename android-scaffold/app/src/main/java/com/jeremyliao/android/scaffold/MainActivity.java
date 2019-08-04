@@ -20,6 +20,7 @@ import com.jeremyliao.android.scaffold.recyclerview.loadmore.LoadMoreRecyclerDem
 import com.jeremyliao.android.scaffold.recyclerview.normal.RecyclerViewNormalDemo;
 import com.jeremyliao.android.scaffold.recyclerview.quick.QuickAdapter;
 import com.jeremyliao.android.scaffold.recyclerview.quick.RecyclerViewQuickDemo;
+import com.jeremyliao.android.scaffold.robolectric.activity.UTMainActivity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -91,5 +92,6 @@ public class MainActivity extends AppCompatActivity {
             new DemoData("DemoInfoViewActivity", DemoInfoViewActivity.class),
             new DemoData("LocalBroadcastDemoActivity", LocalBroadcastDemoActivity.class),
             new DemoData("ViewModelShareDemo", ViewModelShareDemo.class),
+            new DemoData("UTMainActivity", UTMainActivity.class),
     };
 }

@@ -5,6 +5,7 @@ import android.app.Application;
 
 import com.jeremyliao.android.scaffold.robolectric.activity.UTMainActivity;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
@@ -14,6 +15,7 @@ import static org.junit.Assert.assertNotNull;
  */
 public class WrongUnitTest {
 
+    @Ignore
     @Test
     public void testWrongCase1() {
         Activity activity = new Activity();
@@ -21,6 +23,7 @@ public class WrongUnitTest {
         assertNotNull(application);
     }
 
+    @Ignore
     @Test
     public void testWrongCase2() {
         UTMainActivity activity = new UTMainActivity();

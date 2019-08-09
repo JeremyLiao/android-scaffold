@@ -1,0 +1,61 @@
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = "0.8.4"
+}
+
+android {
+    buildTypes {
+        debug {
+            testCoverageEnabled = true
+        }
+    }
+    testOptions {
+        unitTests.all {
+            jacoco {
+                includeNoLocationClasses = true
+                append = false
+                destinationFile = file("${project.buildDir}/jacoco/jacoco.exec")
+            }
+        }
+    }
+}
+
+task createJacocoCoverageReport(type: JacocoReport, dependsOn: "testDebugUnitTest") {
+    group = "jacoco"
+    description = "Generate Jacoco coverage reports after running tests."
+    classDirectories = fileTree(
+            dir: "${project.buildDir}/intermediates/javac/debug/compileDebugJavaWithJavac/classes",
+            includes: ['com/jeremyliao/android/scaffold/robolectric/**/*.class'],
+            excludes: ['**/R.class',
+                       '**/R$*.class',
+                       '**/*$ViewInjector*.*',
+                       '**/*$ViewBinder*.*',
+                       '**/BuildConfig.*',
+                       '**/Manifest*.*']
+    )
+    sourceDirectories = files(['src/main/java'])
+    // 定义要被统计的覆盖率文件的路径，该路径下的全部文件都会被用于覆盖率的计算
+    executionData = files("${project.buildDir}/jacoco/jacoco.exec")
+    // 定义各种报告类型的开关
+    reports {
+        csv.enabled = false
+        xml.enabled = false
+        html.enabled = true
+        html.destination project.file("${project.buildDir}/reports/jacoco/html")
+    }
+}
+
+task showJacocoCoverageReport(group: "jacoco", dependsOn: "createJacocoCoverageReport", description: "show jacoco reports") {
+    doLast {
+        openHtml(project.file("${project.buildDir}/reports/tests/testDebugUnitTest/index.html"))
+        openHtml(project.file("${project.buildDir}/reports/jacoco/html/index.html"))
+    }
+}
+
+def openHtml(def path) {
+    def osName = System.getProperty("os.name").toLowerCase()
+    if (osName.indexOf("mac") >= 0 && osName.indexOf("os") > 0) {
+        "open ${path}".execute()
+    }
+}

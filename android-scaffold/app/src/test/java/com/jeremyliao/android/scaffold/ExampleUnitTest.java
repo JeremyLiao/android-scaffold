@@ -6,6 +6,7 @@ import android.widget.TextView;
 import com.jeremyliao.android.scaffold.robolectric.activity.LoginActivity;
 import com.jeremyliao.android.scaffold.robolectric.activity.UTMainActivity;
 
+import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -64,5 +65,17 @@ public class ExampleUnitTest {
         UTMainActivity activity = controller.get();
         activity.findViewById(R.id.btn_toast).performClick();
         assertEquals("hello world", ShadowToast.getTextOfLatestToast());
+    }
+
+    @Test
+    public void testAssetJ() {
+        Assertions.assertThat("abc").as("assert abc").isEqualTo("abc");
+    }
+
+    @Test
+    public void testShowToastJ() {
+        UTMainActivity activity = controller.get();
+        activity.findViewById(R.id.btn_toast).performClick();
+        Assertions.assertThat("hello world").isEqualTo(ShadowToast.getTextOfLatestToast());
     }
 }

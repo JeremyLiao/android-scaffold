@@ -19,7 +19,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
-import org.mockito.internal.matchers.Any;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
@@ -42,7 +41,8 @@ import static org.junit.Assert.assertNotNull;
  * Created by liaohailiang on 2019-07-31.
  */
 @RunWith(RobolectricTestRunner.class)
-@PowerMockIgnore({"org.mockito.*", "org.robolectric.*", "android.*", "javax.xml.parsers.*", "com.sun.org.apache.xerces.internal.jaxp.*", "javax.net.ssl.*"})
+@PowerMockIgnore({"org.mockito.*", "org.robolectric.*", "android.*", "javax.xml.parsers.*",
+        "com.sun.org.apache.*", "javax.net.ssl.*"})
 @PrepareForTest({InfoHelper.class})
 public class UTMainActivityTest {
 

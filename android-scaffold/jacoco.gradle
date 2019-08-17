@@ -24,6 +24,7 @@ android {
 task createJacocoCoverageReport(type: JacocoReport, dependsOn: "testDebugUnitTest") {
     group = "jacoco"
     description = "Generate Jacoco coverage reports after running tests."
+    //配置class文件的路径，这个地方有个很大的坑，就是class文件的路径不是固定的，有可能在intermediates/classes下面
     classDirectories = fileTree(
             dir: "${project.buildDir}/intermediates/javac/debug/compileDebugJavaWithJavac/classes",
             includes: ['com/jeremyliao/android/scaffold/robolectric/**/*.class'],
@@ -34,6 +35,7 @@ task createJacocoCoverageReport(type: JacocoReport, dependsOn: "testDebugUnitTes
                        '**/BuildConfig.*',
                        '**/Manifest*.*']
     )
+    //源文件的路径
     sourceDirectories = files(['src/main/java'])
     // 定义要被统计的覆盖率文件的路径，该路径下的全部文件都会被用于覆盖率的计算
     executionData = files("${project.buildDir}/jacoco/jacoco.exec")

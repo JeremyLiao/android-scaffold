@@ -9,4 +9,5 @@ import android.arch.lifecycle.ViewModel;
 public class DemoViewModel extends ViewModel {
 
     public final MutableLiveData<String> name = new MutableLiveData<>();
+    public final MutableLiveData<Boolean> set = new MutableLiveData<>();
 }

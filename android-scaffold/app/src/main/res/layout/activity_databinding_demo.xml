@@ -32,5 +32,12 @@
             android:onClick="onChangeValue"
             android:text="change value" />
 
+        <Button
+            android:id="@+id/btn_set_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onSetSameValue"
+            android:text="set the same value" />
+
     </LinearLayout>
 </layout>

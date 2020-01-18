@@ -16,6 +16,8 @@ import com.jeremyliao.android.scaffold.databinding.activity.DataBindingDemoActiv
 import com.jeremyliao.android.scaffold.databinding.fragment.DataBindingFragmentDemo;
 import com.jeremyliao.android.scaffold.databinding.view.DemoInfoViewActivity;
 import com.jeremyliao.android.scaffold.databinding.vmshare.ViewModelShareDemo;
+import com.jeremyliao.android.scaffold.design.DesignDemoActivity;
+import com.jeremyliao.android.scaffold.news.modules.home.NewsHomeActivity;
 import com.jeremyliao.android.scaffold.recyclerview.loadmore.LoadMoreRecyclerDemo;
 import com.jeremyliao.android.scaffold.recyclerview.normal.RecyclerViewNormalDemo;
 import com.jeremyliao.android.scaffold.recyclerview.quick.QuickAdapter;
@@ -84,14 +86,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     final DemoData[] DEMO_DATA = {
-            new DemoData("RecyclerViewNormalDemo", RecyclerViewNormalDemo.class),
-            new DemoData("RecyclerViewQuickDemo", RecyclerViewQuickDemo.class),
-            new DemoData("LoadMoreRecyclerDemo", LoadMoreRecyclerDemo.class),
-            new DemoData("DataBindingDemoActivity", DataBindingDemoActivity.class),
-            new DemoData("DataBindingFragmentDemo", DataBindingFragmentDemo.class),
-            new DemoData("DemoInfoViewActivity", DemoInfoViewActivity.class),
-            new DemoData("LocalBroadcastDemoActivity", LocalBroadcastDemoActivity.class),
-            new DemoData("ViewModelShareDemo", ViewModelShareDemo.class),
-            new DemoData("UTMainActivity", UTMainActivity.class),
+            new DemoData("Normal RecyclerView", RecyclerViewNormalDemo.class),
+            new DemoData("Quick RecyclerView", RecyclerViewQuickDemo.class),
+            new DemoData("LoadMore Recycler", LoadMoreRecyclerDemo.class),
+            new DemoData("DataBinding", DataBindingDemoActivity.class),
+            new DemoData("DataBinding Fragment", DataBindingFragmentDemo.class),
+            new DemoData("DemoInfoView", DemoInfoViewActivity.class),
+            new DemoData("LocalBroadcast", LocalBroadcastDemoActivity.class),
+            new DemoData("ViewModel Share", ViewModelShareDemo.class),
+            new DemoData("Unit Test", UTMainActivity.class),
+            new DemoData("Android Design", DesignDemoActivity.class),
+            new DemoData("News Home", NewsHomeActivity.class),
     };
 }

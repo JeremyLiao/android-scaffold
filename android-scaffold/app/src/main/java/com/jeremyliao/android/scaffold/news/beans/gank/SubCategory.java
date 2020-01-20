@@ -1,9 +1,11 @@
 package com.jeremyliao.android.scaffold.news.beans.gank;
 
+import java.io.Serializable;
+
 /**
  * Created by liaohailiang on 2020-01-16.
  */
-public class SubCategory {
+public class SubCategory implements Serializable {
 
     private String _id;
 

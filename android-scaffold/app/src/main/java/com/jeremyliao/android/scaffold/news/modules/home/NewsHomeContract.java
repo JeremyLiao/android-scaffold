@@ -1,7 +1,7 @@
 package com.jeremyliao.android.scaffold.news.modules.home;
 
-import com.jeremyliao.android.scaffold.mvp.IPresenter;
-import com.jeremyliao.android.scaffold.mvp.IView;
+import com.jeremyliao.android.scaffold.news.base.BasePresenter;
+import com.jeremyliao.android.scaffold.news.base.BaseView;
 import com.jeremyliao.android.scaffold.news.beans.gank.Category;
 
 import java.util.List;
@@ -11,12 +11,12 @@ import java.util.List;
  */
 public class NewsHomeContract {
 
-    public interface View extends IView<Presenter> {
+    public interface View extends BaseView {
 
         void onLoadCategories(List<Category> categories);
     }
 
-    public interface Presenter extends IPresenter<View> {
+    public interface Presenter extends BasePresenter<View> {
 
         void getCategories();
     }

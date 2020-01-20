@@ -4,14 +4,12 @@ import android.annotation.SuppressLint;
 
 import com.jeremyliao.android.scaffold.news.api.GankApi;
 import com.jeremyliao.android.scaffold.news.api.RetrofitService;
-import com.jeremyliao.android.scaffold.news.beans.gank.BaseBean;
+import com.jeremyliao.android.scaffold.news.api.RxTransformers;
 import com.jeremyliao.android.scaffold.news.beans.gank.SubCategory;
 
 import java.util.List;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by liaohailiang on 2020-01-10.
@@ -34,12 +32,12 @@ public class NewsMainPresenter implements NewsMainContract.Presenter {
     public void getSubCategories(String categoryId) {
         RetrofitService.getService(GankApi.class)
                 .subCategories(categoryId)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<BaseBean<List<SubCategory>>>() {
+                .compose(RxTransformers.<List<SubCategory>>businessErrorHandler())
+                .compose(RxTransformers.<List<SubCategory>>applySchedulers())
+                .subscribe(new Consumer<List<SubCategory>>() {
                     @Override
-                    public void accept(BaseBean<List<SubCategory>> result) throws Exception {
-                        getView().onLoadCategories(result.getResults());
+                    public void accept(List<SubCategory> subCategories) throws Exception {
+                        getView().onLoadCategories(subCategories);
                     }
                 }, new Consumer<Throwable>() {
                     @Override

@@ -4,14 +4,12 @@ import android.annotation.SuppressLint;
 
 import com.jeremyliao.android.scaffold.news.api.GankApi;
 import com.jeremyliao.android.scaffold.news.api.RetrofitService;
-import com.jeremyliao.android.scaffold.news.beans.gank.BaseBean;
+import com.jeremyliao.android.scaffold.news.api.RxTransformers;
 import com.jeremyliao.android.scaffold.news.beans.gank.Category;
 
 import java.util.List;
 
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by liaohailiang on 2020-01-10.
@@ -34,12 +32,12 @@ public class NewsHomePresenter implements NewsHomeContract.Presenter {
     public void getCategories() {
         RetrofitService.getService(GankApi.class)
                 .categories()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<BaseBean<List<Category>>>() {
+                .compose(RxTransformers.<List<Category>>businessErrorHandler())
+                .compose(RxTransformers.<List<Category>>applySchedulers())
+                .subscribe(new Consumer<List<Category>>() {
                     @Override
-                    public void accept(BaseBean<List<Category>> result) throws Exception {
-                        getView().onLoadCategories(result.getResults());
+                    public void accept(List<Category> result) throws Exception {
+                        getView().onLoadCategories(result);
                     }
                 }, new Consumer<Throwable>() {
                     @Override

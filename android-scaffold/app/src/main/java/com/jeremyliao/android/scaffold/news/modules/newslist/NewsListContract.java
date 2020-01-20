@@ -1,7 +1,7 @@
 package com.jeremyliao.android.scaffold.news.modules.newslist;
 
-import com.jeremyliao.android.scaffold.mvp.IPresenter;
-import com.jeremyliao.android.scaffold.mvp.IView;
+import com.jeremyliao.android.scaffold.news.base.BasePresenter;
+import com.jeremyliao.android.scaffold.news.base.BaseView;
 import com.jeremyliao.android.scaffold.news.beans.gank.Content;
 
 import java.util.List;
@@ -11,12 +11,16 @@ import java.util.List;
  */
 public class NewsListContract {
 
-    public interface View extends IView<Presenter> {
+    public interface View extends BaseView {
 
         void onLoadContent(List<Content> contents);
+
+        void onLoadMoreContent(List<Content> contents);
+
+        boolean getUserVisibleHint();
     }
 
-    public interface Presenter extends IPresenter<View> {
+    public interface Presenter extends BasePresenter<View> {
 
         void getContent(boolean isRefresh);
 

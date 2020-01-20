@@ -6,24 +6,24 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.jeremyliao.android.scaffold.R;
 import com.jeremyliao.android.scaffold.databinding.ActivityNewsHomeBinding;
+import com.jeremyliao.android.scaffold.news.base.BaseActivity;
 import com.jeremyliao.android.scaffold.news.beans.gank.Category;
 import com.jeremyliao.android.scaffold.news.modules.newsmain.NewsMainFragment;
 
 import java.util.List;
 
-public class NewsHomeActivity extends AppCompatActivity implements
+public class NewsHomeActivity extends BaseActivity implements
         NavigationView.OnNavigationItemSelectedListener, NewsHomeContract.View {
 
     private final int GROUP_ID = 0;
 
-    ActivityNewsHomeBinding binding;
-    NewsMainFragment newsMainFragment;
+    private ActivityNewsHomeBinding binding;
+    private NewsMainFragment newsMainFragment;
 
     private NewsHomePresenter presenter;
     private List<Category> categories;
@@ -78,11 +78,6 @@ public class NewsHomeActivity extends AppCompatActivity implements
             }
             replaceFragment(0);
         }
-    }
-
-    @Override
-    public NewsHomeContract.Presenter getPresenter() {
-        return presenter;
     }
 
     @Override

@@ -14,27 +14,56 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action
+                    android:name="android.intent.action.MAIN"
+                    android:screenOrientation="portrait" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".recyclerview.normal.RecyclerViewNormalDemo" />
-        <activity android:name=".recyclerview.quick.RecyclerViewQuickDemo" />
-        <activity android:name=".databinding.activity.DataBindingDemoActivity" />
-        <activity android:name=".databinding.fragment.DataBindingFragmentDemo" />
-        <activity android:name=".databinding.view.DemoInfoViewActivity" />
-        <activity android:name=".broadcast.LocalBroadcastDemoActivity" />
-        <activity android:name=".recyclerview.loadmore.LoadMoreRecyclerDemo" />
-        <activity android:name=".databinding.vmshare.ViewModelShareDemo" />
-        <activity android:name=".design.DesignDemoActivity" />
+        <activity
+            android:name=".recyclerview.normal.RecyclerViewNormalDemo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".recyclerview.quick.RecyclerViewQuickDemo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".databinding.activity.DataBindingDemoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".databinding.fragment.DataBindingFragmentDemo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".databinding.view.DemoInfoViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".broadcast.LocalBroadcastDemoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".recyclerview.loadmore.LoadMoreRecyclerDemo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".databinding.vmshare.ViewModelShareDemo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".design.DesignDemoActivity"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".robolectric.activity.UTMainActivity" />
-        <activity android:name=".robolectric.activity.LoginActivity" />
+        <activity
+            android:name=".robolectric.activity.UTMainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".robolectric.activity.LoginActivity"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".news.modules.home.NewsHomeActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".news.modules.detail.NewsDetailActivity"
+            android:screenOrientation="portrait" />
 
         <service
             android:name=".broadcast.InterProcessService"

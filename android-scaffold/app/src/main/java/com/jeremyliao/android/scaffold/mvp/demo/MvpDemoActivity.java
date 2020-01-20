@@ -34,9 +34,4 @@ public class MvpDemoActivity extends AppCompatActivity implements DemoContract.V
     public void showMessage(String message) {
 
     }
-
-    @Override
-    public DemoContract.Presenter getPresenter() {
-        return presenter;
-    }
 }

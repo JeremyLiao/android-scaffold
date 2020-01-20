@@ -69,7 +69,7 @@ public class LoadMoreRecyclerDemo extends AppCompatActivity {
                 .fromCallable(new Callable<List<String>>() {
                     @Override
                     public List<String> call() throws Exception {
-                        Thread.sleep(2000);
+                        Thread.sleep(1000);
                         return getData();
                     }
                 })
@@ -90,7 +90,7 @@ public class LoadMoreRecyclerDemo extends AppCompatActivity {
                 .fromCallable(new Callable<List<String>>() {
                     @Override
                     public List<String> call() throws Exception {
-                        Thread.sleep(2000);
+                        Thread.sleep(1000);
                         return getData();
                     }
                 })

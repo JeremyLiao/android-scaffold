@@ -7,14 +7,14 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.jeremyliao.android.scaffold.R;
 import com.jeremyliao.android.scaffold.news.beans.gank.Content;
-import com.jeremyliao.android.scaffold.recyclerview.quick.QuickAdapter;
+import com.jeremyliao.android.scaffold.recyclerview.loadmore.loadmore.LoadMoreAdapter;
 
 import java.util.List;
 
 /**
  * Created by liaohailiang on 2020-01-17.
  */
-public class NewsContentAdapter extends QuickAdapter<Content> {
+public class NewsContentAdapter extends LoadMoreAdapter<Content> {
 
     private final Context context;
 

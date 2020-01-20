@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import com.jeremyliao.android.scaffold.R;
 import com.jeremyliao.android.scaffold.databinding.FragmentNewsMainBinding;
 import com.jeremyliao.android.scaffold.news.adapter.NewsPagerAdapter;
+import com.jeremyliao.android.scaffold.news.base.BaseFragment;
 import com.jeremyliao.android.scaffold.news.beans.gank.Category;
 import com.jeremyliao.android.scaffold.news.beans.gank.SubCategory;
 import com.jeremyliao.android.scaffold.news.modules.newslist.NewsListFragment;
@@ -26,12 +27,12 @@ import java.util.List;
 /**
  * Created by liaohailiang on 2019-04-23.
  */
-public class NewsMainFragment extends Fragment implements NewsMainContract.View {
+public class NewsMainFragment extends BaseFragment implements NewsMainContract.View {
 
     private static final String KEY_CATEGORY = "KEY_CATEGORY";
 
-    FragmentNewsMainBinding binding;
-    NewsMainViewModel viewModel;
+    private FragmentNewsMainBinding binding;
+    private NewsMainViewModel viewModel;
 
     private NewsPagerAdapter pagerAdapter;
     private NewsMainPresenter presenter;
@@ -86,10 +87,5 @@ public class NewsMainFragment extends Fragment implements NewsMainContract.View 
             fragments.add(NewsListFragment.newInstance(subCategory.getId()));
         }
         pagerAdapter.setItems(fragments, titles);
-    }
-
-    @Override
-    public NewsMainContract.Presenter getPresenter() {
-        return presenter;
     }
 }

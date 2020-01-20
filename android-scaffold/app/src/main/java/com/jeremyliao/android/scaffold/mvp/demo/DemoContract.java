@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class DemoContract {
 
-    public interface View extends IView<Presenter> {
+    public interface View extends IView {
 
         void showProgress();
 

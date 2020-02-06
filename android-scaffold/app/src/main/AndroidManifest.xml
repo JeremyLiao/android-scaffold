@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action
                     android:name="android.intent.action.MAIN"
@@ -63,6 +65,22 @@
 
         <activity
             android:name=".news.modules.detail.NewsDetailActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".reuse.mvp.MvpCategoryListActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".reuse.mvp.MvpCategoryTextActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".reuse.mvvm.MvvmCategoryListActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".reuse.mvvm.MvvmCategoryTextActivity"
             android:screenOrientation="portrait" />
 
         <service

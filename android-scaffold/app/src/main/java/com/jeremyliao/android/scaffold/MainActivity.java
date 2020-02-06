@@ -22,6 +22,10 @@ import com.jeremyliao.android.scaffold.recyclerview.loadmore.LoadMoreRecyclerDem
 import com.jeremyliao.android.scaffold.recyclerview.normal.RecyclerViewNormalDemo;
 import com.jeremyliao.android.scaffold.recyclerview.quick.QuickAdapter;
 import com.jeremyliao.android.scaffold.recyclerview.quick.RecyclerViewQuickDemo;
+import com.jeremyliao.android.scaffold.reuse.mvp.MvpCategoryListActivity;
+import com.jeremyliao.android.scaffold.reuse.mvp.MvpCategoryTextActivity;
+import com.jeremyliao.android.scaffold.reuse.mvvm.MvvmCategoryListActivity;
+import com.jeremyliao.android.scaffold.reuse.mvvm.MvvmCategoryTextActivity;
 import com.jeremyliao.android.scaffold.robolectric.activity.UTMainActivity;
 
 import java.util.Arrays;
@@ -97,5 +101,9 @@ public class MainActivity extends AppCompatActivity {
             new DemoData("Unit Test", UTMainActivity.class),
             new DemoData("Android Design", DesignDemoActivity.class),
             new DemoData("News Home", NewsHomeActivity.class),
+            new DemoData("Reuse Mvp List", MvpCategoryListActivity.class),
+            new DemoData("Reuse Mvp Text", MvpCategoryTextActivity.class),
+            new DemoData("Reuse Mvvm List", MvvmCategoryListActivity.class),
+            new DemoData("Reuse Mvvm Text", MvvmCategoryTextActivity.class),
     };
 }

@@ -18,6 +18,8 @@ import com.jeremyliao.android.scaffold.databinding.view.DemoInfoViewActivity;
 import com.jeremyliao.android.scaffold.databinding.vmshare.ViewModelShareDemo;
 import com.jeremyliao.android.scaffold.design.DesignDemoActivity;
 import com.jeremyliao.android.scaffold.news.modules.home.NewsHomeActivity;
+import com.jeremyliao.android.scaffold.recyclerview.decoration.RecyclerViewDecorationDemo;
+import com.jeremyliao.android.scaffold.recyclerview.group.RecyclerViewGroupDemo;
 import com.jeremyliao.android.scaffold.recyclerview.loadmore.LoadMoreRecyclerDemo;
 import com.jeremyliao.android.scaffold.recyclerview.normal.RecyclerViewNormalDemo;
 import com.jeremyliao.android.scaffold.recyclerview.quick.QuickAdapter;
@@ -105,5 +107,7 @@ public class MainActivity extends AppCompatActivity {
             new DemoData("Reuse Mvp Text", MvpCategoryTextActivity.class),
             new DemoData("Reuse Mvvm List", MvvmCategoryListActivity.class),
             new DemoData("Reuse Mvvm Text", MvvmCategoryTextActivity.class),
+            new DemoData("RecyclerView Decoration", RecyclerViewDecorationDemo.class),
+            new DemoData("RecyclerView Group", RecyclerViewGroupDemo.class),
     };
 }

@@ -29,6 +29,15 @@
         <activity
             android:name=".recyclerview.quick.RecyclerViewQuickDemo"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".recyclerview.group.RecyclerViewGroupDemo"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".recyclerview.decoration.RecyclerViewDecorationDemo"
+            android:screenOrientation="portrait" />
+
         <activity
             android:name=".databinding.activity.DataBindingDemoActivity"
             android:screenOrientation="portrait" />

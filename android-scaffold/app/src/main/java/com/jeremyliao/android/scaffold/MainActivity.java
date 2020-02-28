@@ -19,6 +19,8 @@ import com.jeremyliao.android.scaffold.databinding.fragment.DataBindingFragmentD
 import com.jeremyliao.android.scaffold.databinding.view.DemoInfoViewActivity;
 import com.jeremyliao.android.scaffold.databinding.vmshare.ViewModelShareDemo;
 import com.jeremyliao.android.scaffold.design.DesignDemoActivity;
+import com.jeremyliao.android.scaffold.dialog.dialogfragment.activity.DialogDemoActivity;
+import com.jeremyliao.android.scaffold.dialog.dialogfragment.activity.DialogThemeActivity;
 import com.jeremyliao.android.scaffold.news.modules.home.NewsHomeActivity;
 import com.jeremyliao.android.scaffold.recyclerview.decoration.RecyclerViewDecorationDemo;
 import com.jeremyliao.android.scaffold.recyclerview.group.GroupDecoration;
@@ -162,6 +164,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private static final GroupData[] DATA = {
+            new GroupData("Dialog",
+                    new DemoData[]{
+                            new DemoData("Dialog Themes", DialogThemeActivity.class),
+                            new DemoData("Dialogs", DialogDemoActivity.class),
+                    }),
             new GroupData("RecyclerView",
                     new DemoData[]{
                             new DemoData("Normal RecyclerView", RecyclerViewNormalDemo.class),

@@ -92,6 +92,14 @@
             android:name=".reuse.mvvm.MvvmCategoryTextActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".dialog.dialogfragment.activity.DialogThemeActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".dialog.dialogfragment.activity.DialogDemoActivity"
+            android:screenOrientation="portrait" />
+
         <service
             android:name=".broadcast.InterProcessService"
             android:process=":process">

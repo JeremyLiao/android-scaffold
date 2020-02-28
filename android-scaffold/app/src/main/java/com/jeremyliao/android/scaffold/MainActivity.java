@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.jeremyliao.android.scaffold.broadcast.LocalBroadcastDemoActivity;
 import com.jeremyliao.android.scaffold.databinding.activity.DataBindingDemoActivity;
+import com.jeremyliao.android.scaffold.databinding.doubleclick.DataBindingDoubleClickActivity;
 import com.jeremyliao.android.scaffold.databinding.fragment.DataBindingFragmentDemo;
 import com.jeremyliao.android.scaffold.databinding.view.DemoInfoViewActivity;
 import com.jeremyliao.android.scaffold.databinding.vmshare.ViewModelShareDemo;
@@ -183,6 +184,7 @@ public class MainActivity extends AppCompatActivity {
                             new DemoData("DataBinding Fragment", DataBindingFragmentDemo.class),
                             new DemoData("DemoInfoView", DemoInfoViewActivity.class),
                             new DemoData("ViewModel Share", ViewModelShareDemo.class),
+                            new DemoData("Double Click", DataBindingDoubleClickActivity.class),
                     }),
             new GroupData("Reuse",
                     new DemoData[]{

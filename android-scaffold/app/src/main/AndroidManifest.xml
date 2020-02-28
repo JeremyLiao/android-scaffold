@@ -100,6 +100,10 @@
             android:name=".dialog.dialogfragment.activity.DialogDemoActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".databinding.doubleclick.DataBindingDoubleClickActivity"
+            android:screenOrientation="portrait" />
+
         <service
             android:name=".broadcast.InterProcessService"
             android:process=":process">

@@ -29,6 +29,7 @@ import com.jeremyliao.android.scaffold.recyclerview.group.GroupDecorationAdapter
 import com.jeremyliao.android.scaffold.recyclerview.group.RecyclerViewGroupDemo;
 import com.jeremyliao.android.scaffold.recyclerview.loadmore.LoadMoreRecyclerDemo;
 import com.jeremyliao.android.scaffold.recyclerview.normal.RecyclerViewNormalDemo;
+import com.jeremyliao.android.scaffold.recyclerview.order.OrderedListDemo;
 import com.jeremyliao.android.scaffold.recyclerview.quick.QuickAdapter;
 import com.jeremyliao.android.scaffold.recyclerview.quick.RecyclerViewQuickDemo;
 import com.jeremyliao.android.scaffold.reuse.mvp.MvpCategoryListActivity;
@@ -177,6 +178,7 @@ public class MainActivity extends AppCompatActivity {
                             new DemoData("LoadMore Recycler", LoadMoreRecyclerDemo.class),
                             new DemoData("RecyclerView Decoration", RecyclerViewDecorationDemo.class),
                             new DemoData("RecyclerView Group", RecyclerViewGroupDemo.class),
+                            new DemoData("Ordered List", OrderedListDemo.class),
                     }),
             new GroupData("DataBinding",
                     new DemoData[]{

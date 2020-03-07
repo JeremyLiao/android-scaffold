@@ -104,6 +104,10 @@
             android:name=".databinding.doubleclick.DataBindingDoubleClickActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".recyclerview.order.OrderedListDemo"
+            android:screenOrientation="portrait" />
+
         <service
             android:name=".broadcast.InterProcessService"
             android:process=":process">

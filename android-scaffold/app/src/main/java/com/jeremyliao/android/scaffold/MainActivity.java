@@ -24,6 +24,8 @@ import com.jeremyliao.android.scaffold.design.DesignDemoActivity;
 import com.jeremyliao.android.scaffold.dialog.dialogfragment.activity.DialogDemoActivity;
 import com.jeremyliao.android.scaffold.dialog.dialogfragment.activity.DialogThemeActivity;
 import com.jeremyliao.android.scaffold.news.modules.home.NewsHomeActivity;
+import com.jeremyliao.android.scaffold.permission.PermissionFragmentDemo;
+import com.jeremyliao.android.scaffold.permission.PermissionRequestActivity;
 import com.jeremyliao.android.scaffold.recyclerview.decoration.RecyclerViewDecorationDemo;
 import com.jeremyliao.android.scaffold.recyclerview.group.GroupDecoration;
 import com.jeremyliao.android.scaffold.recyclerview.group.GroupDecorationAdapter;
@@ -199,6 +201,11 @@ public class MainActivity extends AppCompatActivity {
             new GroupData("News",
                     new DemoData[]{
                             new DemoData("News Home", NewsHomeActivity.class),
+                    }),
+            new GroupData("Permission",
+                    new DemoData[]{
+                            new DemoData("Permission Request by Activity", PermissionRequestActivity.class),
+                            new DemoData("Permission Request by Fragment", PermissionFragmentDemo.class),
                     }),
             new GroupData("Others",
                     new DemoData[]{

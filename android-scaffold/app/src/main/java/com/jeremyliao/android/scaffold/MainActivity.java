@@ -3,17 +3,18 @@ package com.jeremyliao.android.scaffold;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
 import com.jeremyliao.android.scaffold.broadcast.LocalBroadcastDemoActivity;
+import com.jeremyliao.android.scaffold.databinding.ActivityMainBinding;
 import com.jeremyliao.android.scaffold.databinding.activity.DataBindingDemoActivity;
 import com.jeremyliao.android.scaffold.databinding.doubleclick.DataBindingDoubleClickActivity;
 import com.jeremyliao.android.scaffold.databinding.fragment.DataBindingFragmentDemo;
@@ -46,15 +47,15 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
+    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        recyclerView = findViewById(R.id.recycler_view);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding.setLifecycleOwner(this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
+        binding.recyclerView.setLayoutManager(layoutManager);
         layoutManager.setOrientation(OrientationHelper.VERTICAL);
         DemoAdapter adapter = new DemoAdapter(getDemoDatas());
         adapter.setOnItemClickListener(new QuickAdapter.OnItemClickListener<DemoData>() {
@@ -63,9 +64,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, data.activityClass));
             }
         });
-        recyclerView.setAdapter(adapter);
-        recyclerView.addItemDecoration(new GroupDecoration(new DemoGroupAdapter(this)));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        binding.recyclerView.setAdapter(adapter);
+        binding.recyclerView.addItemDecoration(new GroupDecoration(new DemoGroupAdapter(this)));
+        binding.recyclerView.setItemAnimator(new DefaultItemAnimator());
         startService();
     }
 

@@ -18,6 +18,7 @@ import com.jeremyliao.android.scaffold.databinding.ActivityMainBinding;
 import com.jeremyliao.android.scaffold.databinding.activity.DataBindingDemoActivity;
 import com.jeremyliao.android.scaffold.databinding.doubleclick.DataBindingDoubleClickActivity;
 import com.jeremyliao.android.scaffold.databinding.fragment.DataBindingFragmentDemo;
+import com.jeremyliao.android.scaffold.databinding.livedata.LiveDataActivity;
 import com.jeremyliao.android.scaffold.databinding.view.DemoInfoViewActivity;
 import com.jeremyliao.android.scaffold.databinding.vmshare.ViewModelShareDemo;
 import com.jeremyliao.android.scaffold.design.DesignDemoActivity;
@@ -190,6 +191,7 @@ public class MainActivity extends AppCompatActivity {
                             new DemoData("DemoInfoView", DemoInfoViewActivity.class),
                             new DemoData("ViewModel Share", ViewModelShareDemo.class),
                             new DemoData("Double Click", DataBindingDoubleClickActivity.class),
+                            new DemoData("LiveData", LiveDataActivity.class),
                     }),
             new GroupData("Reuse",
                     new DemoData[]{

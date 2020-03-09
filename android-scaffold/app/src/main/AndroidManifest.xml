@@ -50,6 +50,11 @@
         <activity
             android:name=".databinding.activity.DataBindingDemoActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".databinding.livedata.LiveDataActivity"
+            android:screenOrientation="portrait" />
+
         <activity
             android:name=".databinding.fragment.DataBindingFragmentDemo"
             android:screenOrientation="portrait" />

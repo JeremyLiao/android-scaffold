@@ -71,7 +71,7 @@
             android:name=".databinding.vmshare.ViewModelShareDemo"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".design.DesignDemoActivity"
+            android:name=".design.demo.DesignDemoActivity"
             android:screenOrientation="portrait" />
 
         <activity
@@ -128,6 +128,22 @@
 
         <activity
             android:name=".permission.PermissionFragmentDemo"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".design.toolbar.simpleuse.SimpleToolBarActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".design.toolbar.styles.StylesToolBarActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".design.popup.PopupWindowActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".design.shadow.ShadowDemoActivity"
             android:screenOrientation="portrait" />
 
         <service

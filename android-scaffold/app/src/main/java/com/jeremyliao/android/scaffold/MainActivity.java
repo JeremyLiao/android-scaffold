@@ -21,7 +21,11 @@ import com.jeremyliao.android.scaffold.databinding.fragment.DataBindingFragmentD
 import com.jeremyliao.android.scaffold.databinding.livedata.LiveDataActivity;
 import com.jeremyliao.android.scaffold.databinding.view.DemoInfoViewActivity;
 import com.jeremyliao.android.scaffold.databinding.vmshare.ViewModelShareDemo;
-import com.jeremyliao.android.scaffold.design.DesignDemoActivity;
+import com.jeremyliao.android.scaffold.design.demo.DesignDemoActivity;
+import com.jeremyliao.android.scaffold.design.popup.PopupWindowActivity;
+import com.jeremyliao.android.scaffold.design.shadow.ShadowDemoActivity;
+import com.jeremyliao.android.scaffold.design.toolbar.simpleuse.SimpleToolBarActivity;
+import com.jeremyliao.android.scaffold.design.toolbar.styles.StylesToolBarActivity;
 import com.jeremyliao.android.scaffold.dialog.dialogfragment.activity.DialogDemoActivity;
 import com.jeremyliao.android.scaffold.dialog.dialogfragment.activity.DialogThemeActivity;
 import com.jeremyliao.android.scaffold.news.modules.home.NewsHomeActivity;
@@ -208,6 +212,13 @@ public class MainActivity extends AppCompatActivity {
                     new DemoData[]{
                             new DemoData("Permission Request by Activity", PermissionRequestActivity.class),
                             new DemoData("Permission Request by Fragment", PermissionFragmentDemo.class),
+                    }),
+            new GroupData("Design",
+                    new DemoData[]{
+                            new DemoData("Simple ToolBar", SimpleToolBarActivity.class),
+                            new DemoData("Styles ToolBar", StylesToolBarActivity.class),
+                            new DemoData("Popup Window", PopupWindowActivity.class),
+                            new DemoData("Shadow Demo", ShadowDemoActivity.class),
                     }),
             new GroupData("Others",
                     new DemoData[]{

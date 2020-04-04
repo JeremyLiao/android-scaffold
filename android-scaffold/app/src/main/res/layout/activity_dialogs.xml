@@ -36,5 +36,11 @@
             android:onClick="@{()->handler.alertDialog()}"
             android:text="Alert Dialog" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->handler.checkAlertShow()}"
+            android:text="Check Alert Show" />
+
     </LinearLayout>
 </layout>

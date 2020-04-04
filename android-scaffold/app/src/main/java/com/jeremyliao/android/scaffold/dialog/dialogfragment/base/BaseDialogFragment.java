@@ -77,6 +77,12 @@ public class BaseDialogFragment extends DialogFragment {
         return ViewGroup.LayoutParams.WRAP_CONTENT;
     }
 
+    public boolean isShowing() {
+        return (getDialog() != null
+                && getDialog().isShowing()
+                && !isRemoving());
+    }
+
     public interface OnDismissListener {
         void onDismiss(BaseDialogFragment dialog);
     }

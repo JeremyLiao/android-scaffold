@@ -37,7 +37,7 @@ public class DemoInfoView extends FrameLayout {
                 this, true);
     }
 
-    public void setSimpleCardDTO(DemoInfo info) {
+    public void setInfoData(DemoInfo info) {
         if (info == null) {
             return;
         }

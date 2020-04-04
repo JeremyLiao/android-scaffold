@@ -18,11 +18,11 @@ public class DemoInfoViewActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_demo_info);
         binding.setLifecycleOwner(this);
         DemoInfo demoInfo = new DemoInfo();
-        demoInfo.cardNo = "8888********8888";
-        demoInfo.cardTypeName = "电子卡";
-        demoInfo.gradeName = "白金卡";
+        demoInfo.cardNo = "8888888888888888";
+        demoInfo.cardTypeName = "会员卡";
+        demoInfo.gradeName = "超级会员卡";
         demoInfo.memberName = "张先生";
-        demoInfo.mobile = "138****8888";
-        binding.demoInfoView.setSimpleCardDTO(demoInfo);
+        demoInfo.mobile = "13888888888";
+        binding.demoInfoView.setInfoData(demoInfo);
     }
 }

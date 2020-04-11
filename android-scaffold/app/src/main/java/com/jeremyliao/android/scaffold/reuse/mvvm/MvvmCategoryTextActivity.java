@@ -29,7 +29,7 @@ public class MvvmCategoryTextActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_reuse_text);
         binding.setLifecycleOwner(this);
-        viewModel = ViewModelProviders.of(this, new ViewModelProvider.NewInstanceFactory()).get(CategoryViewModel.class);
+        viewModel = ViewModelProviders.of(this).get(CategoryViewModel.class);
         viewModel.categories.observe(this, new Observer<List<Category>>() {
             @Override
             public void onChanged(@Nullable List<Category> categories) {

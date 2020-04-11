@@ -1,4 +1,4 @@
-package com.jeremyliao.android.scaffold.common.utils;
+package com.jeremyliao.android.scaffold.utils;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -11,15 +11,21 @@ import java.io.Closeable;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.lang.reflect.Type;
 
 /**
  *
  */
-public final class DeepCopyUtils {
+public final class CloneUtils {
 
     private static final Gson DEFAULT_GSON = new Gson();
 
-    public static <T extends Parcelable> T copyParcelable(T input) {
+    /**
+     * @param input
+     * @param <T>
+     * @return
+     */
+    public static <T extends Parcelable> T deepCloneParcelable(T input) {
         if (input == null) {
             return null;
         }
@@ -39,7 +45,12 @@ public final class DeepCopyUtils {
         }
     }
 
-    public static <T extends Serializable> T copySerializable(T obj) {
+    /**
+     * @param obj
+     * @param <T>
+     * @return
+     */
+    public static <T extends Serializable> T deepCloneSerializable(T obj) {
         ByteArrayOutputStream bos = null;
         ObjectOutputStream obs = null;
         ByteArrayInputStream bis = null;
@@ -56,31 +67,39 @@ public final class DeepCopyUtils {
             e.printStackTrace();
             return null;
         } finally {
-            close(bos);
-            close(obs);
-            close(bis);
-            close(ois);
+            CloseUtils.closeIO(bos, obs, bis, ois);
         }
     }
 
-    public static <T> T copyBean(T input) {
+    /**
+     * @param input
+     * @param <T>
+     * @return
+     */
+    public static <T> T deepCloneBean(T input) {
         if (input == null) {
             return null;
         }
         try {
             return (T) DEFAULT_GSON.fromJson(DEFAULT_GSON.toJson(input), input.getClass());
         } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
     }
 
-    private static void close(Closeable closeable) {
-        if (closeable == null) {
-            return;
-        }
+    /**
+     * @param data
+     * @param type
+     * @param <T>
+     * @return
+     */
+    public static <T> T deepCloneBean(final T data, final Type type) {
         try {
-            closeable.close();
+            return DEFAULT_GSON.fromJson(DEFAULT_GSON.toJson(data), type);
         } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }

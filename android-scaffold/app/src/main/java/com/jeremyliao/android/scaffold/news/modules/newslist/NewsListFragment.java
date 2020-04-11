@@ -60,7 +60,7 @@ public class NewsListFragment extends BaseFragment implements NewsListContract.V
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_news_list, container, false);
-        viewModel = ViewModelProviders.of(this, new ViewModelProvider.NewInstanceFactory()).get(NewsListViewModel.class);
+        viewModel = ViewModelProviders.of(this).get(NewsListViewModel.class);
         binding.setVm(viewModel);
         binding.setLifecycleOwner(this);
         init();

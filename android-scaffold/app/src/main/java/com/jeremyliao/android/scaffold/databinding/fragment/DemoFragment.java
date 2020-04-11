@@ -34,7 +34,7 @@ public class DemoFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_databinding_demo, container, false);
-        viewModel = ViewModelProviders.of(this, new ViewModelProvider.NewInstanceFactory()).get(DemoViewModel.class);
+        viewModel = ViewModelProviders.of(this).get(DemoViewModel.class);
         binding.setVm(viewModel);
         binding.setHandler(this);
         binding.setLifecycleOwner(this);

@@ -22,7 +22,15 @@ public class PopupWindowActivity extends AppCompatActivity {
     public void showPopup() {
         DemoPopupWindow popupWindow = new DemoPopupWindow(this);
         popupWindow.showOnAnchor(binding.btnPop1,
-                RelativePopupWindow.VerticalPosition.BELOW,
+                RelativePopupWindow.VerticalPosition.ABOVE,
+                RelativePopupWindow.HorizontalPosition.CENTER,
+                false);
+    }
+
+    public void showComplicatedPopup() {
+        ComplicatedPopupWindow popupWindow = new ComplicatedPopupWindow(this);
+        popupWindow.showOnAnchor(binding.btnPop2,
+                RelativePopupWindow.VerticalPosition.ABOVE,
                 RelativePopupWindow.HorizontalPosition.CENTER,
                 false);
     }

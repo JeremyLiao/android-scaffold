@@ -26,7 +26,7 @@ public class LiveDataActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_livedata);
-        viewModel = ViewModelProviders.of(this, new ViewModelProvider.NewInstanceFactory()).get(LiveDataViewModel.class);
+        viewModel = ViewModelProviders.of(this).get(LiveDataViewModel.class);
         binding.setHandler(this);
         binding.setLifecycleOwner(this);
         viewModel.booleanLiveData.observe(this, new Observer<Boolean>() {

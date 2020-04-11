@@ -40,7 +40,7 @@ public class MvvmCategoryListActivity extends AppCompatActivity {
         adapter = new CategoryAdapter(null);
         binding.rvCategoryList.setAdapter(adapter);
         binding.rvCategoryList.setItemAnimator(new DefaultItemAnimator());
-        viewModel = ViewModelProviders.of(this, new ViewModelProvider.NewInstanceFactory()).get(CategoryViewModel.class);
+        viewModel = ViewModelProviders.of(this).get(CategoryViewModel.class);
         viewModel.categories.observe(this, new Observer<List<Category>>() {
             @Override
             public void onChanged(@Nullable List<Category> categories) {

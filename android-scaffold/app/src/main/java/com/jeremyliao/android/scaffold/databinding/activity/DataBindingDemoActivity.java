@@ -26,7 +26,7 @@ public class DataBindingDemoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_databinding_demo);
-        viewModel = ViewModelProviders.of(this, new ViewModelProvider.NewInstanceFactory()).get(DemoViewModel.class);
+        viewModel = ViewModelProviders.of(this).get(DemoViewModel.class);
         binding.setVm(viewModel);
         binding.setLifecycleOwner(this);
         viewModel.name.setValue("hello world");

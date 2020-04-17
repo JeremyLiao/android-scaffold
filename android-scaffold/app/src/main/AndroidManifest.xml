@@ -84,6 +84,10 @@
 
         <activity android:name=".design.shadow.ShadowDemoActivity" />
 
+        <activity android:name=".recyclerview.grid.RecyclerGridDemo" />
+
+        <activity android:name=".rxjava2.RxJavaDemoActivity" />
+
         <service
             android:name=".broadcast.InterProcessService"
             android:process=":process">

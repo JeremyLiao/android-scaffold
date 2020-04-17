@@ -32,6 +32,7 @@ import com.jeremyliao.android.scaffold.news.modules.home.NewsHomeActivity;
 import com.jeremyliao.android.scaffold.permission.PermissionFragmentDemo;
 import com.jeremyliao.android.scaffold.permission.PermissionRequestActivity;
 import com.jeremyliao.android.scaffold.recyclerview.decoration.RecyclerViewDecorationDemo;
+import com.jeremyliao.android.scaffold.recyclerview.grid.RecyclerGridDemo;
 import com.jeremyliao.android.scaffold.recyclerview.group.GroupDecoration;
 import com.jeremyliao.android.scaffold.recyclerview.group.GroupDecorationAdapter;
 import com.jeremyliao.android.scaffold.recyclerview.group.RecyclerViewGroupDemo;
@@ -45,6 +46,7 @@ import com.jeremyliao.android.scaffold.reuse.mvp.MvpCategoryTextActivity;
 import com.jeremyliao.android.scaffold.reuse.mvvm.MvvmCategoryListActivity;
 import com.jeremyliao.android.scaffold.reuse.mvvm.MvvmCategoryTextActivity;
 import com.jeremyliao.android.scaffold.robolectric.activity.UTMainActivity;
+import com.jeremyliao.android.scaffold.rxjava2.RxJavaDemoActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -187,6 +189,7 @@ public class MainActivity extends AppCompatActivity {
                             new DemoData("RecyclerView Decoration", RecyclerViewDecorationDemo.class),
                             new DemoData("RecyclerView Group", RecyclerViewGroupDemo.class),
                             new DemoData("Ordered List", OrderedListDemo.class),
+                            new DemoData("Grid Demo", RecyclerGridDemo.class),
                     }),
             new GroupData("DataBinding",
                     new DemoData[]{
@@ -225,6 +228,7 @@ public class MainActivity extends AppCompatActivity {
                             new DemoData("LocalBroadcast", LocalBroadcastDemoActivity.class),
                             new DemoData("Unit Test", UTMainActivity.class),
                             new DemoData("Android Design", DesignDemoActivity.class),
+                            new DemoData("RxJava", RxJavaDemoActivity.class),
                     }),
 
     };

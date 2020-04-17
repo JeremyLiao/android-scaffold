@@ -3,6 +3,15 @@ package com.jeremyliao.android.scaffold.rxjava2;
 import android.annotation.SuppressLint;
 import android.util.Log;
 
+import com.jeremyliao.android.scaffold.news.api.GankApi;
+import com.jeremyliao.android.scaffold.news.api.RetrofitService;
+import com.jeremyliao.android.scaffold.news.api.RxTransformers;
+import com.jeremyliao.android.scaffold.news.beans.gank.Category;
+import com.jeremyliao.android.scaffold.news.beans.gank.Content;
+import com.jeremyliao.android.scaffold.news.beans.gank.SubCategory;
+import com.jeremyliao.android.scaffold.utils.ToastUtils;
+
+import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -179,6 +188,38 @@ public class RxJava2Demo {
                     @Override
                     public void accept(Integer integer) throws Exception {
                         Log.d(TAG, "subscribe: " + Thread.currentThread().getName());
+                    }
+                });
+    }
+
+    @SuppressLint("CheckResult")
+    public static void testRetrofit() {
+        final GankApi gankApi = RetrofitService.getService(GankApi.class);
+        gankApi.categories().compose(RxTransformers.<List<Category>>businessErrorHandler())
+                .flatMap(new Function<List<Category>, Observable<List<SubCategory>>>() {
+                    @Override
+                    public Observable<List<SubCategory>> apply(List<Category> categories) throws Exception {
+                        return gankApi.subCategories(categories.get(0).getEn_name())
+                                .compose(RxTransformers.<List<SubCategory>>businessErrorHandler());
+                    }
+                })
+                .flatMap(new Function<List<SubCategory>, Observable<List<Content>>>() {
+                    @Override
+                    public Observable<List<Content>> apply(List<SubCategory> subCategories) throws Exception {
+                        return gankApi.getContent(subCategories.get(0).getId(), 10, 1)
+                                .compose(RxTransformers.<List<Content>>businessErrorHandler());
+                    }
+                })
+                .compose(RxTransformers.<List<Content>>applySchedulers())
+                .subscribe(new Consumer<List<Content>>() {
+                    @Override
+                    public void accept(List<Content> contents) throws Exception {
+                        ToastUtils.showLong("" + contents);
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        ToastUtils.showLong(throwable.toString());
                     }
                 });
     }

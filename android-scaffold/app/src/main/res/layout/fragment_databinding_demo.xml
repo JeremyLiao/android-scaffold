@@ -36,5 +36,12 @@
             android:onClick="@{()->handler.onChangeValue()}"
             android:text="change value" />
 
+        <Button
+            android:id="@+id/btn_set_delay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->handler.onChangeValueDelay()}"
+            android:text="change value delay" />
+
     </LinearLayout>
 </layout>

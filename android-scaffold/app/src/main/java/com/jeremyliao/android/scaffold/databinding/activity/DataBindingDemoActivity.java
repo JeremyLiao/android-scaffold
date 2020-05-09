@@ -5,6 +5,8 @@ import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -21,6 +23,7 @@ public class DataBindingDemoActivity extends AppCompatActivity {
     DemoViewModel viewModel;
     private Random random = new Random();
     public String name;
+    private Handler handler = new Handler(Looper.getMainLooper());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,7 @@ public class DataBindingDemoActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_databinding_demo);
         viewModel = ViewModelProviders.of(this).get(DemoViewModel.class);
         binding.setVm(viewModel);
+        binding.setHandler(this);
         binding.setLifecycleOwner(this);
         viewModel.name.setValue("hello world");
         viewModel.name.observe(this, new Observer<String>() {
@@ -44,12 +48,23 @@ public class DataBindingDemoActivity extends AppCompatActivity {
         });
     }
 
-    public void onChangeValue(View v) {
+    public void onChangeValue() {
         String value = "Value: " + random.nextInt();
         viewModel.name.setValue(value);
     }
 
-    public void onSetSameValue(View v) {
+    public void onSetSameValue() {
         viewModel.set.setValue(true);
+    }
+
+
+    public void onChangeValueDelay() {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                String value = "Value: " + random.nextInt();
+                viewModel.name.setValue(value);
+            }
+        }, 2000);
     }
 }

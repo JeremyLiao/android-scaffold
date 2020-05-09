@@ -5,15 +5,13 @@
 
     <data>
 
-        <import type="com.jeremyliao.android.scaffold.databinding.activity.DemoViewModel" />
+        <variable
+            name="handler"
+            type="com.jeremyliao.android.scaffold.databinding.observable.ObservableDemoActivity" />
 
         <variable
             name="vm"
-            type="DemoViewModel" />
-
-        <variable
-            name="handler"
-            type="com.jeremyliao.android.scaffold.databinding.activity.DataBindingDemoActivity" />
+            type="com.jeremyliao.android.scaffold.databinding.observable.ObservableViewModel" />
     </data>
 
     <LinearLayout
@@ -23,32 +21,33 @@
 
         <TextView
             android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:padding="10dp"
             android:text="@{vm.name}"
             android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/btn_change_value"
+        <TextView
+            android:id="@+id/tv_title1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{()->handler.onChangeValue()}"
-            android:text="change value" />
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@{handler.stringObservableField}"
+            android:textSize="20sp" />
 
         <Button
-            android:id="@+id/btn_set_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{()->handler.onSetSameValue()}"
-            android:text="set the same value" />
+            android:onClick="@{()->handler.setValue()}"
+            android:text="set value" />
 
         <Button
-            android:id="@+id/btn_set_delay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{()->handler.onChangeValueDelay()}"
-            android:text="change value delay" />
+            android:onClick="@{()->handler.postValue()}"
+            android:text="post value" />
 
     </LinearLayout>
 </layout>

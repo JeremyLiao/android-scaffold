@@ -18,6 +18,8 @@ import com.jeremyliao.android.scaffold.databinding.ActivityMainBinding;
 import com.jeremyliao.android.scaffold.databinding.activity.DataBindingDemoActivity;
 import com.jeremyliao.android.scaffold.databinding.doubleclick.DataBindingDoubleClickActivity;
 import com.jeremyliao.android.scaffold.databinding.fragment.DataBindingFragmentDemo;
+import com.jeremyliao.android.scaffold.databinding.observable.ObservableDemoActivity;
+import com.jeremyliao.android.scaffold.dialog.dialogfragment.illegal.IllegalTestActivity;
 import com.jeremyliao.android.scaffold.databinding.livedata.LiveDataActivity;
 import com.jeremyliao.android.scaffold.databinding.view.DemoInfoViewActivity;
 import com.jeremyliao.android.scaffold.databinding.vmshare.ViewModelShareDemo;
@@ -180,6 +182,7 @@ public class MainActivity extends AppCompatActivity {
                     new DemoData[]{
                             new DemoData("Dialog Themes", DialogThemeActivity.class),
                             new DemoData("Dialogs", DialogDemoActivity.class),
+                            new DemoData("IllegalStateException", IllegalTestActivity.class),
                     }),
             new GroupData("RecyclerView",
                     new DemoData[]{
@@ -199,6 +202,7 @@ public class MainActivity extends AppCompatActivity {
                             new DemoData("ViewModel Share", ViewModelShareDemo.class),
                             new DemoData("Double Click", DataBindingDoubleClickActivity.class),
                             new DemoData("LiveData", LiveDataActivity.class),
+                            new DemoData("Observable", ObservableDemoActivity.class),
                     }),
             new GroupData("Reuse",
                     new DemoData[]{

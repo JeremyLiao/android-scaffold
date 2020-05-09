@@ -4,15 +4,9 @@
 
     <data>
 
-        <import type="android.view.View" />
-
-        <import type="android.text.TextUtils" />
-
-        <import type="com.jeremyliao.android.scaffold.dialog.dialogfragment.dialog.AlertDialogFragment" />
-
         <variable
             name="model"
-            type="AlertDialogFragment" />
+            type="com.jeremyliao.android.scaffold.dialog.dialogfragment.illegal.IllegalDialogFragment" />
 
     </data>
 
@@ -27,22 +21,11 @@
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:gravity="center"
             android:text="@{model.title}"
             android:textSize="22sp"
-            android:visibility="@{TextUtils.isEmpty(model.title)?View.GONE:View.VISIBLE}"
             tools:text="标题" />
-
-        <TextView
-            android:id="@+id/tv_content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:text="@{model.content}"
-            android:textSize="14sp"
-            android:visibility="@{TextUtils.isEmpty(model.content)?View.GONE:View.VISIBLE}"
-            tools:text="内容内容内容内容内容" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,10 +39,9 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:onClick="@{()->model.onLeftClick()}"
-                android:text="@{model.leftText}"
+                android:text="开始"
                 android:textColor="@android:color/darker_gray"
-                android:textSize="16sp"
-                android:visibility="@{TextUtils.isEmpty(model.leftText)?View.GONE:View.VISIBLE}" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/btn_right"
@@ -68,10 +50,9 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:onClick="@{()->model.onRightClick()}"
-                android:text="@{model.rightText}"
+                android:text="关闭"
                 android:textColor="@android:color/holo_orange_dark"
-                android:textSize="16sp"
-                android:visibility="@{TextUtils.isEmpty(model.rightText)?View.GONE:View.VISIBLE}" />
+                android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
 </layout>

@@ -23,4 +23,8 @@ public class RxJavaDemoActivity extends AppCompatActivity {
         RxJava2Demo.testRetrofit();
     }
 
+    public void threadChange1() {
+        RxJava2Demo.threadChange1();
+    }
+
 }

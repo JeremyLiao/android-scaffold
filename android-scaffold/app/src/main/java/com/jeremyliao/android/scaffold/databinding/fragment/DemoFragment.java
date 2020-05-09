@@ -4,6 +4,8 @@ import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -24,6 +26,7 @@ public class DemoFragment extends Fragment {
     FragmentDatabindingDemoBinding binding;
     DemoViewModel viewModel;
     private Random random = new Random();
+    private Handler handler = new Handler(Looper.getMainLooper());
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,5 +47,15 @@ public class DemoFragment extends Fragment {
     public void onChangeValue() {
         String value = "Value: " + random.nextInt();
         viewModel.name.setValue(value);
+    }
+
+    public void onChangeValueDelay() {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                String value = "Value: " + random.nextInt();
+                viewModel.name.setValue(value);
+            }
+        }, 2000);
     }
 }

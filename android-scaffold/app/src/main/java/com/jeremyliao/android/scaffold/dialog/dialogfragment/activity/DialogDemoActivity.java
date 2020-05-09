@@ -8,6 +8,7 @@ import android.widget.Toast;
 import com.jeremyliao.android.scaffold.R;
 import com.jeremyliao.android.scaffold.databinding.ActivityDialogsBinding;
 import com.jeremyliao.android.scaffold.dialog.dialogfragment.dialog.AlertDialogFragment;
+import com.jeremyliao.android.scaffold.dialog.dialogfragment.dialog.AlertVmDialogFragment;
 import com.jeremyliao.android.scaffold.dialog.dialogfragment.dialog.NarrowDialogFragment;
 import com.jeremyliao.android.scaffold.dialog.dialogfragment.dialog.WideDialogFragment;
 import com.jeremyliao.android.scaffold.dialog.dialogfragment.utils.FragmentDialogUtils;
@@ -15,7 +16,6 @@ import com.jeremyliao.android.scaffold.dialog.dialogfragment.utils.FragmentDialo
 public class DialogDemoActivity extends AppCompatActivity {
 
     ActivityDialogsBinding binding;
-    private AlertDialogFragment alertDialogFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +34,21 @@ public class DialogDemoActivity extends AppCompatActivity {
     }
 
     public void alertDialog() {
-        alertDialogFragment = AlertDialogFragment.newInstance();
+        AlertDialogFragment alertDialogFragment = AlertDialogFragment.newInstance();
         alertDialogFragment.setTitle("标题标题");
         alertDialogFragment.setContent("这里是文案文案文案文案");
-        alertDialogFragment.setLeftButtonText("取消");
+//        alertDialogFragment.setLeftButtonText("取消");
         alertDialogFragment.setRightButtonText("确认");
         FragmentDialogUtils.showDialog(this, alertDialogFragment);
+    }
+
+    public void alertVmDialog() {
+        AlertVmDialogFragment dialogFragment = AlertVmDialogFragment.newInstance();
+        dialogFragment.setTitle("标题标题");
+        dialogFragment.setContent("这里是文案文案文案文案");
+        dialogFragment.setLeftButtonText("取消");
+        dialogFragment.setRightButtonText("确认");
+        FragmentDialogUtils.showDialog(this, dialogFragment);
     }
 
     public void checkAlertShow() {
@@ -47,9 +56,6 @@ public class DialogDemoActivity extends AppCompatActivity {
     }
 
     private boolean isAlertShow() {
-        if (alertDialogFragment == null) {
-            return false;
-        }
-        return alertDialogFragment.isShowing();
+        return true;
     }
 }

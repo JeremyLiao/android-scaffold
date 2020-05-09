@@ -39,6 +39,13 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="@{()->handler.alertVmDialog()}"
+            android:text="Alert ViewModel Dialog"
+            android:visibility="gone" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:onClick="@{()->handler.checkAlertShow()}"
             android:text="Check Alert Show" />
 

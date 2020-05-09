@@ -1,7 +1,9 @@
 package com.jeremyliao.android.scaffold.dialog.dialogfragment.dialog;
 
+import android.arch.lifecycle.MutableLiveData;
+import android.arch.lifecycle.ViewModel;
+import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
-import android.databinding.ObservableField;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,25 +12,28 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.jeremyliao.android.scaffold.R;
-import com.jeremyliao.android.scaffold.databinding.DialogAlertBinding;
-import com.jeremyliao.android.scaffold.databinding.DialogFragmentBasicBinding;
+import com.jeremyliao.android.scaffold.databinding.DialogAlertVmBinding;
 import com.jeremyliao.android.scaffold.dialog.dialogfragment.base.BaseDialogFragment;
 
 /**
  * Created by liaohailiang on 2020-02-18.
  */
-public class AlertDialogFragment extends BaseDialogFragment {
+@Deprecated
+public class AlertVmDialogFragment extends BaseDialogFragment {
 
-    public ObservableField<String> title = new ObservableField<>();
-    public ObservableField<String> content = new ObservableField<>();
-    public ObservableField<String> leftText = new ObservableField<>();
-    public ObservableField<String> rightText = new ObservableField<>();
+    public static class AlertViewModel extends ViewModel {
+        public MutableLiveData<String> title = new MutableLiveData<>();
+        public MutableLiveData<String> content = new MutableLiveData<>();
+        public MutableLiveData<String> leftText = new MutableLiveData<>();
+        public MutableLiveData<String> rightText = new MutableLiveData<>();
+    }
 
-    private DialogAlertBinding binding;
+    private DialogAlertVmBinding binding;
+    private AlertViewModel viewModel;
     private View.OnClickListener onLeftListener, onRightListener;
 
-    public static AlertDialogFragment newInstance() {
-        AlertDialogFragment f = new AlertDialogFragment();
+    public static AlertVmDialogFragment newInstance() {
+        AlertVmDialogFragment f = new AlertVmDialogFragment();
         return f;
     }
 
@@ -40,8 +45,10 @@ public class AlertDialogFragment extends BaseDialogFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, R.layout.dialog_alert, container, false);
-        binding.setModel(this);
+        binding = DataBindingUtil.inflate(inflater, R.layout.dialog_alert_vm, container, false);
+        viewModel = ViewModelProviders.of(this).get(AlertViewModel.class);
+        binding.setVm(viewModel);
+        binding.setHandler(this);
         binding.setLifecycleOwner(this);
         return binding.getRoot();
     }
@@ -54,16 +61,16 @@ public class AlertDialogFragment extends BaseDialogFragment {
     @Override
     protected int width() {
         int width = getResources().getDisplayMetrics().widthPixels;
-        return (int) (0.6 * width);
+        return (int) (0.8 * width);
     }
 
     public void setContent(String str) {
-        content.set(str);
+        viewModel.content.setValue(str);
     }
 
     public void setTitle(String str) {
 
-        title.set(str);
+        viewModel.title.setValue(str);
     }
 
     public void setContent(int resId) {
@@ -75,7 +82,7 @@ public class AlertDialogFragment extends BaseDialogFragment {
     }
 
     public void setLeftButtonText(String txt) {
-        leftText.set(txt);
+        viewModel.leftText.setValue(txt);
     }
 
     public void setLeftButtonText(int resId) {
@@ -83,7 +90,7 @@ public class AlertDialogFragment extends BaseDialogFragment {
     }
 
     public void setRightButtonText(String txt) {
-        rightText.set(txt);
+        viewModel.rightText.setValue(txt);
     }
 
     public void setRightButtonText(int resId) {

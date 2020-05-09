@@ -30,63 +30,40 @@
         </activity>
         <activity android:name=".recyclerview.normal.RecyclerViewNormalDemo" />
         <activity android:name=".recyclerview.quick.RecyclerViewQuickDemo" />
-
         <activity android:name=".recyclerview.group.RecyclerViewGroupDemo" />
-
         <activity android:name=".recyclerview.decoration.RecyclerViewDecorationDemo" />
-
         <activity android:name=".databinding.activity.DataBindingDemoActivity" />
-
         <activity android:name=".databinding.livedata.LiveDataActivity" />
-
         <activity android:name=".databinding.fragment.DataBindingFragmentDemo" />
         <activity android:name=".databinding.view.DemoInfoViewActivity" />
         <activity android:name=".broadcast.LocalBroadcastDemoActivity" />
         <activity android:name=".recyclerview.loadmore.LoadMoreRecyclerDemo" />
         <activity android:name=".databinding.vmshare.ViewModelShareDemo" />
         <activity android:name=".design.demo.DesignDemoActivity" />
-
         <activity android:name=".robolectric.activity.UTMainActivity" />
         <activity android:name=".robolectric.activity.LoginActivity" />
-
         <activity
             android:name=".news.modules.home.NewsHomeActivity"
-
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity android:name=".news.modules.detail.NewsDetailActivity" />
-
         <activity android:name=".reuse.mvp.MvpCategoryListActivity" />
-
         <activity android:name=".reuse.mvp.MvpCategoryTextActivity" />
-
         <activity android:name=".reuse.mvvm.MvvmCategoryListActivity" />
-
         <activity android:name=".reuse.mvvm.MvvmCategoryTextActivity" />
-
         <activity android:name=".dialog.dialogfragment.activity.DialogThemeActivity" />
-
         <activity android:name=".dialog.dialogfragment.activity.DialogDemoActivity" />
-
         <activity android:name=".databinding.doubleclick.DataBindingDoubleClickActivity" />
-
         <activity android:name=".recyclerview.order.OrderedListDemo" />
-
         <activity android:name=".permission.PermissionRequestActivity" />
-
         <activity android:name=".permission.PermissionFragmentDemo" />
-
         <activity android:name=".design.toolbar.simpleuse.SimpleToolBarActivity" />
-
         <activity android:name=".design.toolbar.styles.StylesToolBarActivity" />
-
         <activity android:name=".design.popup.PopupWindowActivity" />
-
         <activity android:name=".design.shadow.ShadowDemoActivity" />
-
         <activity android:name=".recyclerview.grid.RecyclerGridDemo" />
-
         <activity android:name=".rxjava2.RxJavaDemoActivity" />
+        <activity android:name=".dialog.dialogfragment.illegal.IllegalTestActivity" />
+        <activity android:name=".databinding.observable.ObservableDemoActivity" />
 
         <service
             android:name=".broadcast.InterProcessService"

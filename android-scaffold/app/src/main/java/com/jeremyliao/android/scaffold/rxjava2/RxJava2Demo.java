@@ -21,6 +21,7 @@ import java.util.concurrent.TimeoutException;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -33,9 +34,9 @@ import io.reactivex.schedulers.Schedulers;
  */
 public class RxJava2Demo {
 
-    private static final String TAG = "RxJava2Demo";
+    private static final String TAG = "RxJava2";
 
-    public static void asyncTask1() {
+    public static void create() {
         Observable
                 .create(new ObservableOnSubscribe<String>() {
                     @Override
@@ -68,7 +69,7 @@ public class RxJava2Demo {
                 });
     }
 
-    public static void asyncTask2() {
+    public static void fromCallable() {
         Observable
                 .fromCallable(new Callable<String>() {
                     @Override
@@ -101,7 +102,7 @@ public class RxJava2Demo {
                 });
     }
 
-    public static void asyncTask3() {
+    public static void fromFuture() {
         Observable
                 .fromFuture(new Future<String>() {
                     @Override
@@ -155,7 +156,7 @@ public class RxJava2Demo {
     }
 
     @SuppressLint("CheckResult")
-    public static void asyncTask4() {
+    public static void just() {
         Observable.just(2)
                 .map(new Function<Integer, Integer>() {
                     @Override
@@ -220,6 +221,68 @@ public class RxJava2Demo {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
                         ToastUtils.showLong(throwable.toString());
+                    }
+                });
+    }
+
+    private static void printThreadInfo(String tag) {
+        Log.d(TAG, tag + " | " + Thread.currentThread().getName());
+    }
+
+    private static void delay(long millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+        }
+    }
+
+    @SuppressLint("CheckResult")
+    public static void threadChange1() {
+        Observable
+                .create(new ObservableOnSubscribe<String>() {
+                    @Override
+                    public void subscribe(ObservableEmitter<String> emitter) throws Exception {
+                        printThreadInfo("1");
+                        delay(200);
+                        emitter.onNext("hello world");
+                    }
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(Schedulers.newThread())
+                .doOnNext(new Consumer<String>() {
+                    @Override
+                    public void accept(String s) throws Exception {
+                        printThreadInfo("2");
+                        delay(200);
+                    }
+                })
+                .map(new Function<String, String>() {
+                    @Override
+                    public String apply(String s) throws Exception {
+                        printThreadInfo("3");
+                        delay(200);
+                        return s;
+                    }
+                })
+                .observeOn(Schedulers.newThread())
+                .flatMap(new Function<String, ObservableSource<String>>() {
+                    @Override
+                    public ObservableSource<String> apply(final String s) throws Exception {
+                        return Observable.create(new ObservableOnSubscribe<String>() {
+                            @Override
+                            public void subscribe(ObservableEmitter<String> emitter) throws Exception {
+                                printThreadInfo("4");
+                                delay(200);
+                                emitter.onNext(s + "aa");
+                            }
+                        });
+                    }
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String s) throws Exception {
+                        printThreadInfo("consumer");
                     }
                 });
     }

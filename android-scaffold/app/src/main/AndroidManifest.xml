@@ -64,6 +64,8 @@
         <activity android:name=".rxjava2.RxJavaDemoActivity" />
         <activity android:name=".dialog.dialogfragment.illegal.IllegalTestActivity" />
         <activity android:name=".databinding.observable.ObservableDemoActivity" />
+        <activity android:name=".others.ashmem.AshmemActivity" />
+        <activity android:name=".others.ashmem.AshmemTargetActivity" />
 
         <service
             android:name=".broadcast.InterProcessService"

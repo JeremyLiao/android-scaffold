@@ -6,6 +6,12 @@ import com.jeremyliao.android.scaffold.algorithm.coins.Coins1;
 import com.jeremyliao.android.scaffold.algorithm.coins.Coins2;
 import com.jeremyliao.android.scaffold.algorithm.coins.Coins3;
 import com.jeremyliao.android.scaffold.algorithm.coins.ICoins;
+import com.jeremyliao.android.scaffold.algorithm.datastructure.BST;
+import com.jeremyliao.android.scaffold.algorithm.datastructure.LinkList;
+import com.jeremyliao.android.scaffold.algorithm.datastructure.MaxPriorityQueue;
+import com.jeremyliao.android.scaffold.algorithm.datastructure.Palindrome;
+import com.jeremyliao.android.scaffold.algorithm.datastructure.node.LinkNode;
+import com.jeremyliao.android.scaffold.algorithm.datastructure.node.TreeNode;
 import com.jeremyliao.android.scaffold.algorithm.dp.ChooseStones;
 import com.jeremyliao.android.scaffold.algorithm.dp.EditDistance;
 import com.jeremyliao.android.scaffold.algorithm.dp.HouseRobber;
@@ -18,6 +24,15 @@ import com.jeremyliao.android.scaffold.algorithm.fib.Fib3;
 import com.jeremyliao.android.scaffold.algorithm.fib.Fib4;
 import com.jeremyliao.android.scaffold.algorithm.fib.IFib;
 import com.jeremyliao.android.scaffold.algorithm.greedy.IntervalScheduling;
+import com.jeremyliao.android.scaffold.algorithm.other.BraceMatch;
+import com.jeremyliao.android.scaffold.algorithm.other.FloodFill;
+import com.jeremyliao.android.scaffold.algorithm.other.LongestPalindrome;
+import com.jeremyliao.android.scaffold.algorithm.other.PathSum;
+import com.jeremyliao.android.scaffold.algorithm.other.PathSum2;
+import com.jeremyliao.android.scaffold.algorithm.other.PreSum;
+import com.jeremyliao.android.scaffold.algorithm.other.RemoveDuplicates;
+import com.jeremyliao.android.scaffold.algorithm.other.Subsequence;
+import com.jeremyliao.android.scaffold.algorithm.other.TwoSum;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -153,5 +168,122 @@ public class AlgorithmTest {
         Assert.assertEquals(result, 4);
         result = houseRobber.rob(new int[]{2, 7, 9, 3, 1});
         Assert.assertEquals(result, 12);
+    }
+
+    @Test
+    public void testPriorityQueue() {
+        MaxPriorityQueue<Integer> priorityQueue = new MaxPriorityQueue(10);
+        int[] values = {2, 7, 15, 9, 21, 3, 1};
+        for (int value : values) {
+            priorityQueue.insert(value);
+        }
+        Assert.assertEquals((int) priorityQueue.max(), 21);
+        priorityQueue.delMax();
+        Assert.assertEquals((int) priorityQueue.max(), 15);
+    }
+
+    @Test
+    public void testBST() {
+        int[] values = {10, 2, 7, 15, 9, 21, 3, 1};
+        TreeNode<Integer> root = null;
+        for (int value : values) {
+            root = BST.insert(root, value);
+        }
+        Assert.assertTrue(BST.isValidBST(root));
+        root = BST.delete(root, 7);
+        Assert.assertTrue(BST.isValidBST(root));
+        root = BST.delete(root, 3);
+        Assert.assertTrue(BST.isValidBST(root));
+    }
+
+    @Test
+    public void testTwoSum() {
+        int[] nums = {10, 2, 7, 15, 9, 21, 3, 1};
+        int[] result = TwoSum.twoSum1(nums, 9);
+        Assert.assertArrayEquals(result, new int[]{1, 2});
+        result = TwoSum.twoSum2(nums, 9);
+        Assert.assertArrayEquals(result, new int[]{1, 2});
+        result = TwoSum.twoSum2(nums, 50);
+        Assert.assertArrayEquals(result, new int[]{-1, -1});
+    }
+
+    @Test
+    public void testPreSum() {
+        int[] nums = {1, 1, 1};
+        int result = PreSum.subarraySum(nums, 2);
+        Assert.assertEquals(result, 2);
+        result = PreSum.subarraySum1(nums, 2);
+        Assert.assertEquals(result, 2);
+    }
+
+    @Test
+    public void testFloodFill() {
+        int[][] images = {{1, 1, 1}, {1, 1, 0}, {1, 0, 1}};
+        int[][] rets = FloodFill.floodFill(images, 1, 1, 2);
+        Assert.assertArrayEquals(rets, new int[][]{{2, 2, 2}, {2, 2, 0}, {2, 0, 1}});
+    }
+
+    @Test
+    public void testPathSum() {
+        Integer[] nodes = {null, 10, 5, -3, 3, 2, null, 11, 3, -2, null, 1};
+        int result = PathSum.pathSum(nodes, 1, 8);
+        Assert.assertEquals(result, 3);
+    }
+
+    @Test
+    public void testPathSum2() {
+        Integer[] nodes = {null, 10, 5, -3, 3, 2, null, 11, 3, -2, null, 1};
+        TreeNode<Integer> root = PathSum2.makeTree(nodes);
+        int result = PathSum2.pathSum(root, 8);
+        Assert.assertEquals(result, 3);
+    }
+
+    @Test
+    public void testRemoveDuplicates() {
+        int[] nums = {1, 2, 3, 3, 3, 4, 5, 5, 6};
+        int result = RemoveDuplicates.removeDuplicates(nums);
+        Assert.assertEquals(result, 6);
+    }
+
+    @Test
+    public void testLongestPalindrome() {
+        String result = LongestPalindrome.longestPalindrome("abacd");
+        Assert.assertEquals(result, "aba");
+    }
+
+    @Test
+    public void testLinkList() {
+        int[] list = {1, 2, 3, 4, 5, 6};
+        LinkNode<Integer> root = LinkList.from(list);
+        Assert.assertEquals(LinkList.length(root), 6);
+        Assert.assertArrayEquals(LinkList.to(root), list);
+        LinkNode<Integer> reverse = LinkList.reverse(LinkList.from(list));
+        Assert.assertArrayEquals(LinkList.to(reverse), new int[]{6, 5, 4, 3, 2, 1});
+        LinkNode<Integer> kreverse = LinkList.kreverse(LinkList.from(list), 2);
+        Assert.assertArrayEquals(LinkList.to(kreverse), new int[]{2, 1, 3, 4, 5, 6});
+        LinkNode<Integer> loopkreverse = LinkList.loopkreverse(LinkList.from(list), 2);
+        Assert.assertArrayEquals(LinkList.to(loopkreverse), new int[]{2, 1, 4, 3, 6, 5});
+        int[] list1 = {1, 2, 3, 4, 5, 6, 7};
+        LinkNode<Integer> loopkreverse1 = LinkList.loopkreverse(LinkList.from(list1), 2);
+        Assert.assertArrayEquals(LinkList.to(loopkreverse1), new int[]{2, 1, 4, 3, 6, 5, 7});
+    }
+
+    @Test
+    public void testBraceMatch() {
+        assertTrue(BraceMatch.isValid("()[]{}"));
+        assertFalse(BraceMatch.isValid("([)]"));
+        assertTrue(BraceMatch.isValid("{[]}"));
+    }
+
+    @Test
+    public void testLinkPalindrome() {
+        assertTrue(Palindrome.isPalindrome(LinkList.from(new int[]{1, 2, 2, 1})));
+        assertFalse(Palindrome.isPalindrome(LinkList.from(new int[]{1, 2, 3})));
+    }
+
+    @Test
+    public void testSubsequence() {
+        assertTrue(Subsequence.isSubsequence("abc", "ahbgdc"));
+        assertFalse(Subsequence.isSubsequence("axc", "ahbgdc"));
     }
 }

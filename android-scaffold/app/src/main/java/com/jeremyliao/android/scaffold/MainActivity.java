@@ -31,6 +31,7 @@ import com.jeremyliao.android.scaffold.design.toolbar.styles.StylesToolBarActivi
 import com.jeremyliao.android.scaffold.dialog.dialogfragment.activity.DialogDemoActivity;
 import com.jeremyliao.android.scaffold.dialog.dialogfragment.activity.DialogThemeActivity;
 import com.jeremyliao.android.scaffold.news.modules.home.NewsHomeActivity;
+import com.jeremyliao.android.scaffold.others.ashmem.AshmemActivity;
 import com.jeremyliao.android.scaffold.permission.PermissionFragmentDemo;
 import com.jeremyliao.android.scaffold.permission.PermissionRequestActivity;
 import com.jeremyliao.android.scaffold.recyclerview.decoration.RecyclerViewDecorationDemo;
@@ -233,6 +234,7 @@ public class MainActivity extends AppCompatActivity {
                             new DemoData("Unit Test", UTMainActivity.class),
                             new DemoData("Android Design", DesignDemoActivity.class),
                             new DemoData("RxJava", RxJavaDemoActivity.class),
+                            new DemoData("Shared Memory", AshmemActivity.class),
                     }),
 
     };

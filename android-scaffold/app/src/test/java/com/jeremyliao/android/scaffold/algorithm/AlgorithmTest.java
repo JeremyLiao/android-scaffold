@@ -1,5 +1,7 @@
 package com.jeremyliao.android.scaffold.algorithm;
 
+import com.jeremyliao.android.scaffold.algorithm.algo.array.Array;
+import com.jeremyliao.android.scaffold.algorithm.algo.sorts.Sorts;
 import com.jeremyliao.android.scaffold.algorithm.backtrack.NQueens;
 import com.jeremyliao.android.scaffold.algorithm.backtrack.Permute;
 import com.jeremyliao.android.scaffold.algorithm.coins.Coins1;
@@ -285,5 +287,44 @@ public class AlgorithmTest {
     public void testSubsequence() {
         assertTrue(Subsequence.isSubsequence("abc", "ahbgdc"));
         assertFalse(Subsequence.isSubsequence("axc", "ahbgdc"));
+    }
+
+    @Test
+    public void testArray() {
+        Array array = new Array(5);
+        array.insert(0, 3);
+        array.insert(0, 4);
+        array.insert(1, 5);
+        array.insert(3, 9);
+        array.insert(3, 10);
+        assertArrayEquals(array.toArray(), new int[]{4, 5, 3, 10, 9});
+    }
+
+    @Test
+    public void testBubbleSort() {
+        int[] array = new int[]{3, 4, 2, 1, 5, 6, 7, 8};
+        Sorts.bubbleSort(array);
+        assertArrayEquals(array, new int[]{1, 2, 3, 4, 5, 6, 7, 8});
+    }
+
+    @Test
+    public void testBubbleSort2() {
+        int[] array = new int[]{3, 4, 2, 1, 5, 6, 7, 8};
+        Sorts.bubbleSort2(array);
+        assertArrayEquals(array, new int[]{1, 2, 3, 4, 5, 6, 7, 8});
+    }
+
+    @Test
+    public void testInsertionSort() {
+        int[] array = new int[]{3, 4, 2, 1, 5, 6, 7, 8};
+        Sorts.insertionSort(array);
+        assertArrayEquals(array, new int[]{1, 2, 3, 4, 5, 6, 7, 8});
+    }
+
+    @Test
+    public void testSelectionSort() {
+        int[] array = new int[]{3, 4, 2, 1, 5, 6, 7, 8};
+        Sorts.selectionSort(array);
+        assertArrayEquals(array, new int[]{1, 2, 3, 4, 5, 6, 7, 8});
     }
 }

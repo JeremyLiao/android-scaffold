@@ -28,5 +28,11 @@
             android:onClick="@{()->handler.threadChange1()}"
             android:text="test thread change" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->handler.testThrottleLast()}"
+            android:text="Test Throttle Last" />
+
     </LinearLayout>
 </layout>

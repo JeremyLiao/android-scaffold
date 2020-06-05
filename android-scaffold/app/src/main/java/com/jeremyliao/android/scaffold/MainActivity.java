@@ -30,8 +30,10 @@ import com.jeremyliao.android.scaffold.design.toolbar.simpleuse.SimpleToolBarAct
 import com.jeremyliao.android.scaffold.design.toolbar.styles.StylesToolBarActivity;
 import com.jeremyliao.android.scaffold.dialog.dialogfragment.activity.DialogDemoActivity;
 import com.jeremyliao.android.scaffold.dialog.dialogfragment.activity.DialogThemeActivity;
+import com.jeremyliao.android.scaffold.kt.activity.KotlinMainActivity;
 import com.jeremyliao.android.scaffold.news.modules.home.NewsHomeActivity;
 import com.jeremyliao.android.scaffold.others.ashmem.AshmemActivity;
+import com.jeremyliao.android.scaffold.others.sl.LoaderDemoActivity;
 import com.jeremyliao.android.scaffold.permission.PermissionFragmentDemo;
 import com.jeremyliao.android.scaffold.permission.PermissionRequestActivity;
 import com.jeremyliao.android.scaffold.recyclerview.decoration.RecyclerViewDecorationDemo;
@@ -228,6 +230,10 @@ public class MainActivity extends AppCompatActivity {
                             new DemoData("Popup Window", PopupWindowActivity.class),
                             new DemoData("Shadow Demo", ShadowDemoActivity.class),
                     }),
+            new GroupData("Kotlin",
+                    new DemoData[]{
+                            new DemoData("Kotlin Main", KotlinMainActivity.class),
+                    }),
             new GroupData("Others",
                     new DemoData[]{
                             new DemoData("LocalBroadcast", LocalBroadcastDemoActivity.class),
@@ -235,6 +241,7 @@ public class MainActivity extends AppCompatActivity {
                             new DemoData("Android Design", DesignDemoActivity.class),
                             new DemoData("RxJava", RxJavaDemoActivity.class),
                             new DemoData("Shared Memory", AshmemActivity.class),
+                            new DemoData("Service Loader", LoaderDemoActivity.class),
                     }),
 
     };

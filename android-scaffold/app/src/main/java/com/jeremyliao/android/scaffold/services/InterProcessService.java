@@ -1,4 +1,4 @@
-package com.jeremyliao.android.scaffold.broadcast;
+package com.jeremyliao.android.scaffold.services;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;

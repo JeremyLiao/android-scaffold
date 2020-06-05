@@ -1,4 +1,4 @@
-package com.jeremyliao.android.scaffold.algorithm.datastructure;
+package com.jeremyliao.android.scaffold.algorithm.datastructure.list;
 
 import com.jeremyliao.android.scaffold.algorithm.datastructure.node.LinkNode;
 

@@ -8,12 +8,15 @@ import com.jeremyliao.android.scaffold.algorithm.coins.Coins1;
 import com.jeremyliao.android.scaffold.algorithm.coins.Coins2;
 import com.jeremyliao.android.scaffold.algorithm.coins.Coins3;
 import com.jeremyliao.android.scaffold.algorithm.coins.ICoins;
-import com.jeremyliao.android.scaffold.algorithm.datastructure.BST;
-import com.jeremyliao.android.scaffold.algorithm.datastructure.LinkList;
-import com.jeremyliao.android.scaffold.algorithm.datastructure.MaxPriorityQueue;
-import com.jeremyliao.android.scaffold.algorithm.datastructure.Palindrome;
+import com.jeremyliao.android.scaffold.algorithm.datastructure.node.DoubleLinkNode;
+import com.jeremyliao.android.scaffold.algorithm.datastructure.tree.BST;
+import com.jeremyliao.android.scaffold.algorithm.datastructure.list.LinkList;
+import com.jeremyliao.android.scaffold.algorithm.datastructure.list.MaxPriorityQueue;
+import com.jeremyliao.android.scaffold.algorithm.datastructure.list.Palindrome;
 import com.jeremyliao.android.scaffold.algorithm.datastructure.node.LinkNode;
 import com.jeremyliao.android.scaffold.algorithm.datastructure.node.TreeNode;
+import com.jeremyliao.android.scaffold.algorithm.datastructure.tree.Bst2Dll;
+import com.jeremyliao.android.scaffold.algorithm.datastructure.tree.Bst2Dll2;
 import com.jeremyliao.android.scaffold.algorithm.dp.ChooseStones;
 import com.jeremyliao.android.scaffold.algorithm.dp.EditDistance;
 import com.jeremyliao.android.scaffold.algorithm.dp.HouseRobber;
@@ -325,6 +328,44 @@ public class AlgorithmTest {
     public void testSelectionSort() {
         int[] array = new int[]{3, 4, 2, 1, 5, 6, 7, 8};
         Sorts.selectionSort(array);
+        assertArrayEquals(array, new int[]{1, 2, 3, 4, 5, 6, 7, 8});
+    }
+
+    @Test
+    public void testBST2Dll() {
+        int[] values = {10, 2, 7, 15, 9, 21, 3, 1};
+        TreeNode<Integer> root = null;
+        for (int value : values) {
+            root = BST.insert(root, value);
+        }
+        Assert.assertTrue(BST.isValidBST(root));
+        DoubleLinkNode<Integer> head = Bst2Dll.bst2Dll(root);
+        Assert.assertArrayEquals(Bst2Dll.toArray(head), new int[]{1, 2, 3, 7, 9, 10, 15, 21});
+    }
+
+    @Test
+    public void testBST2Dll2() {
+        int[] values = {10, 2, 7, 15, 9, 21, 3, 1};
+        TreeNode<Integer> root = null;
+        for (int value : values) {
+            root = BST.insert(root, value);
+        }
+        Assert.assertTrue(BST.isValidBST(root));
+        TreeNode<Integer> head = Bst2Dll2.bst2Dll(root);
+        Assert.assertArrayEquals(Bst2Dll2.toArray(head), new int[]{1, 2, 3, 7, 9, 10, 15, 21});
+    }
+
+    @Test
+    public void testMergeSort() {
+        int[] array = new int[]{3, 4, 2, 1, 5, 6, 7, 8};
+        Sorts.mergeSort(array, 0, array.length - 1);
+        assertArrayEquals(array, new int[]{1, 2, 3, 4, 5, 6, 7, 8});
+    }
+
+    @Test
+    public void testQuickSort() {
+        int[] array = new int[]{3, 4, 2, 1, 5, 6, 7, 8};
+        Sorts.quickSort(array, 0, array.length - 1);
         assertArrayEquals(array, new int[]{1, 2, 3, 4, 5, 6, 7, 8});
     }
 }

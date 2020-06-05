@@ -20,8 +20,7 @@ public class ByteUtils {
             out = new ObjectOutputStream(bout);
             out.writeObject(obj);
             out.flush();
-            byte[] bytes = bout.toByteArray();
-            return bytes;
+            return bout.toByteArray();
         } catch (IOException e) {
             e.printStackTrace();
             return null;

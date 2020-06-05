@@ -1,4 +1,4 @@
-package com.jeremyliao.android.scaffold.algorithm.datastructure;
+package com.jeremyliao.android.scaffold.algorithm.datastructure.list;
 
 /**
  * Created by liaohailiang on 2020-05-18.

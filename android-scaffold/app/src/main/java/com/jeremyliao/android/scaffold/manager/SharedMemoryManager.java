@@ -1,9 +1,7 @@
 package com.jeremyliao.android.scaffold.manager;
 
-import android.annotation.SuppressLint;
 import android.os.MemoryFile;
 import android.os.ParcelFileDescriptor;
-import android.os.SharedMemory;
 
 import com.jeremyliao.android.scaffold.utils.ByteUtils;
 import com.jeremyliao.android.scaffold.utils.CloseUtils;
@@ -32,43 +30,38 @@ public class SharedMemoryManager {
     private SharedMemoryManager() {
     }
 
-    public int put(Object object) {
+    public ParcelFileDescriptor put(Object object) {
         if (object == null) {
-            return -1;
+            return null;
         }
         byte[] bytes = ByteUtils.object2ByteArray(object);
         if (bytes == null) {
-            return -1;
+            return null;
         }
-        MemoryFile memoryFile = null;
         try {
-            memoryFile = new MemoryFile(DEFAULT_SHARED_MEMORY_NAME, bytes.length);
+            MemoryFile memoryFile = new MemoryFile(DEFAULT_SHARED_MEMORY_NAME, bytes.length);
             memoryFile.getOutputStream().write(bytes);
-            Method getDeclaredField = MemoryFile.class.getDeclaredMethod("getFileDescriptor");
-            getDeclaredField.setAccessible(true);
-            FileDescriptor fd = (FileDescriptor) getDeclaredField.invoke(memoryFile);
-            Field fDescriptor = FileDescriptor.class.getDeclaredField("descriptor");
-            fDescriptor.setAccessible(true);
-            return fDescriptor.getInt(fd);
-        } catch (Exception e) {
-            return -1;
-        }
-    }
-
-    public Object read(int descriptor) {
-        FileDescriptor fd = new FileDescriptor();
-        try {
-            Field fDescriptor = FileDescriptor.class.getDeclaredField("descriptor");
-            fDescriptor.setAccessible(true);
-            fDescriptor.set(fd, descriptor);
+            Method methodGfd = MemoryFile.class.getDeclaredMethod("getFileDescriptor");
+            methodGfd.setAccessible(true);
+            FileDescriptor fileDescriptor = (FileDescriptor) methodGfd.invoke(memoryFile);
+            return ParcelFileDescriptor.dup(fileDescriptor);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
-        FileInputStream inputStream = new FileInputStream(fd);
-        byte[] bytes = ConvertUtils.inputStream2Bytes(inputStream);
-        Object object = ByteUtils.byteArray2Object(bytes);
-        CloseUtils.closeIO(inputStream);
-        return object;
+    }
+
+    public Object read(ParcelFileDescriptor parcelFileDescriptor) {
+        try {
+            FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
+            FileInputStream inputStream = new FileInputStream(fileDescriptor);
+            byte[] bytes = ConvertUtils.inputStream2Bytes(inputStream);
+            Object object = ByteUtils.byteArray2Object(bytes);
+            CloseUtils.closeIO(inputStream);
+            return object;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

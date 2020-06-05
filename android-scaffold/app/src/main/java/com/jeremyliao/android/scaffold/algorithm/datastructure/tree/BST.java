@@ -1,4 +1,4 @@
-package com.jeremyliao.android.scaffold.algorithm.datastructure;
+package com.jeremyliao.android.scaffold.algorithm.datastructure.tree;
 
 import com.jeremyliao.android.scaffold.algorithm.datastructure.node.TreeNode;
 

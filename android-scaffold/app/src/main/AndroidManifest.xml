@@ -65,13 +65,29 @@
         <activity android:name=".dialog.dialogfragment.illegal.IllegalTestActivity" />
         <activity android:name=".databinding.observable.ObservableDemoActivity" />
         <activity android:name=".others.ashmem.AshmemActivity" />
-        <activity android:name=".others.ashmem.AshmemTargetActivity" />
+        <activity
+            android:name=".others.ashmem.AshmemTargetActivity"
+            android:process=":process" />
+        <activity android:name=".kt.activity.KotlinMainActivity" />
+        <activity android:name=".others.sl.LoaderDemoActivity" />
 
         <service
-            android:name=".broadcast.InterProcessService"
+            android:name=".services.InterProcessService"
             android:process=":process">
             <intent-filter>
                 <action android:name="intent.action.INTER_PROCESS" />
+            </intent-filter>
+        </service>
+        <service android:name=".services.AshmemService">
+            <intent-filter>
+                <action android:name="intent.action.ashmem" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".services.LoaderDemoService"
+            android:process=":process">
+            <intent-filter>
+                <action android:name="intent.action.loader" />
             </intent-filter>
         </service>
     </application>

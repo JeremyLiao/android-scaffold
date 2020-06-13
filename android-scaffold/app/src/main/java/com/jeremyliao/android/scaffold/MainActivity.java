@@ -45,6 +45,7 @@ import com.jeremyliao.android.scaffold.recyclerview.loadmore.LoadMoreRecyclerDem
 import com.jeremyliao.android.scaffold.recyclerview.normal.RecyclerViewNormalDemo;
 import com.jeremyliao.android.scaffold.recyclerview.order.OrderedListDemo;
 import com.jeremyliao.android.scaffold.recyclerview.quick.QuickAdapter;
+import com.jeremyliao.android.scaffold.recyclerview.quick.RecyclerViewDiffDemo;
 import com.jeremyliao.android.scaffold.recyclerview.quick.RecyclerViewQuickDemo;
 import com.jeremyliao.android.scaffold.reuse.mvp.MvpCategoryListActivity;
 import com.jeremyliao.android.scaffold.reuse.mvp.MvpCategoryTextActivity;
@@ -196,6 +197,7 @@ public class MainActivity extends AppCompatActivity {
                             new DemoData("RecyclerView Group", RecyclerViewGroupDemo.class),
                             new DemoData("Ordered List", OrderedListDemo.class),
                             new DemoData("Grid Demo", RecyclerGridDemo.class),
+                            new DemoData("Recycler Diff Demo", RecyclerViewDiffDemo.class),
                     }),
             new GroupData("DataBinding",
                     new DemoData[]{

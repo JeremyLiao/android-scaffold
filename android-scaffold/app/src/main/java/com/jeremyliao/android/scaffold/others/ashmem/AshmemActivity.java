@@ -20,6 +20,7 @@ public class AshmemActivity extends AppCompatActivity {
 
     ActivityAshmemBinding binding;
     IBinder binder;
+    ServiceConnection serviceConnection = new MyServiceConnection();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,12 @@ public class AshmemActivity extends AppCompatActivity {
         binding.setHandler(this);
         binding.setLifecycleOwner(this);
         bindService();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbindService(serviceConnection);
     }
 
     public void startNewPage() {
@@ -45,16 +52,20 @@ public class AshmemActivity extends AppCompatActivity {
     private void bindService() {
         Intent intent = new Intent(AshmemService.ACTION);
         intent.setPackage(getPackageName());
-        bindService(intent, new ServiceConnection() {
-            @Override
-            public void onServiceConnected(ComponentName name, IBinder service) {
-                binder = service;
-            }
+        bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
+        int a = 10;
+    }
 
-            @Override
-            public void onServiceDisconnected(ComponentName name) {
+    class MyServiceConnection implements ServiceConnection {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            binder = service;
+        }
 
-            }
-        }, Context.BIND_AUTO_CREATE);
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            binder = null;
+
+        }
     }
 }

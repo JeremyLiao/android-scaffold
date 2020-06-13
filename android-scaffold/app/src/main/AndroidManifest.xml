@@ -70,6 +70,7 @@
             android:process=":process" />
         <activity android:name=".kt.activity.KotlinMainActivity" />
         <activity android:name=".others.sl.LoaderDemoActivity" />
+        <activity android:name=".recyclerview.quick.RecyclerViewDiffDemo" />
 
         <service
             android:name=".services.InterProcessService"

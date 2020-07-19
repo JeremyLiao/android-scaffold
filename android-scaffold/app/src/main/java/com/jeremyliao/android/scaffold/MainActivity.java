@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
+import com.jeremyliao.android.scaffold.animation.base.AnimationBaseActivity;
 import com.jeremyliao.android.scaffold.broadcast.LocalBroadcastDemoActivity;
 import com.jeremyliao.android.scaffold.databinding.ActivityMainBinding;
 import com.jeremyliao.android.scaffold.databinding.activity.DataBindingDemoActivity;
@@ -34,6 +35,7 @@ import com.jeremyliao.android.scaffold.kt.activity.KotlinMainActivity;
 import com.jeremyliao.android.scaffold.news.modules.home.NewsHomeActivity;
 import com.jeremyliao.android.scaffold.others.ashmem.AshmemActivity;
 import com.jeremyliao.android.scaffold.others.sl.LoaderDemoActivity;
+import com.jeremyliao.android.scaffold.paint.paintbase.PaintBaseActivity;
 import com.jeremyliao.android.scaffold.permission.PermissionFragmentDemo;
 import com.jeremyliao.android.scaffold.permission.PermissionRequestActivity;
 import com.jeremyliao.android.scaffold.recyclerview.decoration.RecyclerViewDecorationDemo;
@@ -42,11 +44,13 @@ import com.jeremyliao.android.scaffold.recyclerview.group.GroupDecoration;
 import com.jeremyliao.android.scaffold.recyclerview.group.GroupDecorationAdapter;
 import com.jeremyliao.android.scaffold.recyclerview.group.RecyclerViewGroupDemo;
 import com.jeremyliao.android.scaffold.recyclerview.loadmore.LoadMoreRecyclerDemo;
+import com.jeremyliao.android.scaffold.recyclerview.multitype.MultiTypeListDemo;
 import com.jeremyliao.android.scaffold.recyclerview.normal.RecyclerViewNormalDemo;
 import com.jeremyliao.android.scaffold.recyclerview.order.OrderedListDemo;
 import com.jeremyliao.android.scaffold.recyclerview.quick.QuickAdapter;
 import com.jeremyliao.android.scaffold.recyclerview.quick.RecyclerViewDiffDemo;
 import com.jeremyliao.android.scaffold.recyclerview.quick.RecyclerViewQuickDemo;
+import com.jeremyliao.android.scaffold.recyclerview.refresh.RefreshDemo;
 import com.jeremyliao.android.scaffold.reuse.mvp.MvpCategoryListActivity;
 import com.jeremyliao.android.scaffold.reuse.mvp.MvpCategoryTextActivity;
 import com.jeremyliao.android.scaffold.reuse.mvvm.MvvmCategoryListActivity;
@@ -182,6 +186,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private static final GroupData[] DATA = {
+            new GroupData("Animation",
+                    new DemoData[]{
+                            new DemoData("Animation Base", AnimationBaseActivity.class),
+                    }),
+            new GroupData("Paint",
+                    new DemoData[]{
+                            new DemoData("Paint Base", PaintBaseActivity.class),
+                    }),
             new GroupData("Dialog",
                     new DemoData[]{
                             new DemoData("Dialog Themes", DialogThemeActivity.class),
@@ -198,6 +210,8 @@ public class MainActivity extends AppCompatActivity {
                             new DemoData("Ordered List", OrderedListDemo.class),
                             new DemoData("Grid Demo", RecyclerGridDemo.class),
                             new DemoData("Recycler Diff Demo", RecyclerViewDiffDemo.class),
+                            new DemoData("Recycler Refresh Demo", RefreshDemo.class),
+                            new DemoData("MultiType List Demo", MultiTypeListDemo.class),
                     }),
             new GroupData("DataBinding",
                     new DemoData[]{

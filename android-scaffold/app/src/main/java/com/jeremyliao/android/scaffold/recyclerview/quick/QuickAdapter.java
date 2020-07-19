@@ -50,6 +50,11 @@ public abstract class QuickAdapter<T> extends RecyclerView.Adapter<QuickAdapter.
         return viewHolder;
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        return super.getItemViewType(position);
+    }
+
     public void onViewHolderCreated(ViewHolder viewHolder) {
     }
 
@@ -134,23 +139,23 @@ public abstract class QuickAdapter<T> extends RecyclerView.Adapter<QuickAdapter.
             View v = views.get(id);
             if (v == null) {
                 v = convertView.findViewById(id);
-                views.put(id, v);
+                if (v != null) {
+                    views.put(id, v);
+                }
             }
             return (T) v;
         }
 
         public <T extends View> T getView(int id, Class<T> type) {
-            View v = views.get(id);
-            if (v == null) {
-                v = convertView.findViewById(id);
-                views.put(id, v);
-            }
+            View v = getView(id);
             return (T) v;
         }
 
         public void setText(int id, String value) {
-            TextView view = getView(id);
-            view.setText(value);
+            View v = getView(id);
+            if (v instanceof TextView) {
+                ((TextView) v).setText(value);
+            }
         }
     }
 

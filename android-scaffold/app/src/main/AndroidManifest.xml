@@ -71,6 +71,10 @@
         <activity android:name=".kt.activity.KotlinMainActivity" />
         <activity android:name=".others.sl.LoaderDemoActivity" />
         <activity android:name=".recyclerview.quick.RecyclerViewDiffDemo" />
+        <activity android:name=".recyclerview.refresh.RefreshDemo" />
+        <activity android:name=".recyclerview.multitype.MultiTypeListDemo" />
+        <activity android:name=".paint.paintbase.PaintBaseActivity" />
+        <activity android:name=".animation.base.AnimationBaseActivity" />
 
         <service
             android:name=".services.InterProcessService"

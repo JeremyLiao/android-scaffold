@@ -75,6 +75,8 @@
         <activity android:name=".recyclerview.multitype.MultiTypeListDemo" />
         <activity android:name=".paint.paintbase.PaintBaseActivity" />
         <activity android:name=".animation.base.AnimationBaseActivity" />
+        <activity android:name=".paint.flipboard.FlipBoardActivity" />
+        <activity android:name=".paint.crhf.CameraRotateHittingFaceActivity" />
 
         <service
             android:name=".services.InterProcessService"

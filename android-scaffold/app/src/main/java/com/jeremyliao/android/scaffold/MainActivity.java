@@ -35,6 +35,9 @@ import com.jeremyliao.android.scaffold.kt.activity.KotlinMainActivity;
 import com.jeremyliao.android.scaffold.news.modules.home.NewsHomeActivity;
 import com.jeremyliao.android.scaffold.others.ashmem.AshmemActivity;
 import com.jeremyliao.android.scaffold.others.sl.LoaderDemoActivity;
+import com.jeremyliao.android.scaffold.paint.crhf.CameraRotateHittingFaceActivity;
+import com.jeremyliao.android.scaffold.paint.crhf.CameraRotateHittingFaceView;
+import com.jeremyliao.android.scaffold.paint.flipboard.FlipBoardActivity;
 import com.jeremyliao.android.scaffold.paint.paintbase.PaintBaseActivity;
 import com.jeremyliao.android.scaffold.permission.PermissionFragmentDemo;
 import com.jeremyliao.android.scaffold.permission.PermissionRequestActivity;
@@ -193,6 +196,8 @@ public class MainActivity extends AppCompatActivity {
             new GroupData("Paint",
                     new DemoData[]{
                             new DemoData("Paint Base", PaintBaseActivity.class),
+                            new DemoData("FlipBoard", FlipBoardActivity.class),
+                            new DemoData("CameraRotateHittingFace", CameraRotateHittingFaceActivity.class),
                     }),
             new GroupData("Dialog",
                     new DemoData[]{

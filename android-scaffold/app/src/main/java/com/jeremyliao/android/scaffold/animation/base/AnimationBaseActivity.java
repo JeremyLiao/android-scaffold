@@ -19,6 +19,9 @@ import com.jeremyliao.android.scaffold.animation.base.evaluator.TranslationEvalu
 import com.jeremyliao.android.scaffold.databinding.ActivityAnimationBaseBinding;
 import com.jeremyliao.android.scaffold.databinding.ActivityPaintBaseBinding;
 
+import static android.view.View.LAYER_TYPE_HARDWARE;
+import static android.view.View.LAYER_TYPE_NONE;
+
 public class AnimationBaseActivity extends AppCompatActivity {
 
     ActivityAnimationBaseBinding binding;
@@ -147,5 +150,31 @@ public class AnimationBaseActivity extends AppCompatActivity {
             }
         });
         animator.start();
+    }
+
+    public void animation10() {
+        binding.imgAnim10.setLayerType(LAYER_TYPE_HARDWARE, null);
+        ObjectAnimator animator = ObjectAnimator.ofFloat(binding.imgAnim10, "rotationY", 180);
+        animator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                binding.imgAnim10.setRotationY(0);
+                binding.imgAnim10.setLayerType(LAYER_TYPE_NONE, null);
+            }
+        });
+        animator.start();
+    }
+
+    public void animation11() {
+        binding.imgAnim11.animate()
+                .rotationY(180)
+                .withEndAction(new Runnable() {
+                    @Override
+                    public void run() {
+                        binding.imgAnim11.setRotationY(0);
+                    }
+                })
+                .withLayer()
+                .start();
     }
 }

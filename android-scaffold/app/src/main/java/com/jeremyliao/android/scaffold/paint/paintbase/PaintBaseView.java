@@ -127,7 +127,8 @@ public class PaintBaseView extends View {
 //        drawTextAdvance(canvas);
 //        drawWithClipRect(canvas);
 //        drawWithTranslate(canvas);
-        drawWithCamera(canvas);
+//        drawWithCamera(canvas);
+        drawWithCameraRotate(canvas);
     }
 
     private void drawLines(Canvas canvas) {
@@ -250,6 +251,24 @@ public class PaintBaseView extends View {
         camera.restore(); // 恢复 Camera 的状态
 
         canvas.drawBitmap(bitmap, offsetX, offsetY, paint);
+        canvas.restore();
+    }
+
+    private void drawWithCameraRotate(Canvas canvas) {
+        canvas.save();
+        camera.save();
+        camera.rotateX(30);
+        camera.applyToCanvas(canvas);
+        camera.restore();
+        canvas.drawBitmap(bitmap, 200, 100, paint);
+        canvas.restore();
+
+        canvas.save();
+        camera.save();
+        camera.rotateY(30);
+        camera.applyToCanvas(canvas);
+        camera.restore();
+        canvas.drawBitmap(bitmap, 600, 200, paint);
         canvas.restore();
     }
 }
